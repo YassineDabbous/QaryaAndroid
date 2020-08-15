@@ -1,0 +1,2 @@
+include ':core', ':app'
+rootProject.name='Qarya'

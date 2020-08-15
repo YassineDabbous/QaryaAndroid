@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="?myTheme_list_itemBackground"
+    app:cardCornerRadius="@dimen/card_radius"
+    android:layout_margin="6dp"
+    app:cardElevation="?myTheme_card_elevation"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?myTheme_list_itemBackground"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/postImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            tools:srcCompat="@drawable/test"
+            app:srcCompat="@drawable/placeholder"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/postBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/feed_item_padding_left_right"
+            android:paddingRight="@dimen/feed_item_padding_left_right">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/circle_white"
+                    android:id="@+id/profilePic"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/logo" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/feed_item_profile_info_padd"
+                    android:paddingRight="@dimen/feed_item_profile_info_padd" >
+
+                    <!--android:paddingTop="@dimen/feed_item_status_pad_top"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"-->
+
+                    <TextView
+                        tools:text="@string/slogon"
+                        android:textColor="?myTheme_list_itemTitleColor"
+                        android:id="@+id/txtStatusTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewStart"
+                        android:layout_gravity="start"
+                        android:textSize="@dimen/feed_item_profile_name"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        tools:text="2 days ago"
+                        android:id="@+id/timestamp"
+                        android:textAlignment="viewStart"
+                        android:layout_gravity="start"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?myTheme_list_itemDateColor"
+                        android:textSize="@dimen/feed_item_timestamp" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:linksClickable="false"
+                android:textColor="?myTheme_list_itemDescriptionColor"
+                android:textSize="13sp"
+                tools:text="@string/forgot_password_msg"
+                android:id="@+id/txtStatusMsg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/feed_item_status_pad_left_right"
+                android:paddingRight="@dimen/feed_item_status_pad_left_right" />
+
+            <TextView
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                tools:text="http://www.yaseen.me"
+                android:id="@+id/txtUrl"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:linksClickable="true"
+                android:paddingBottom="4dp"
+                android:paddingLeft="@dimen/feed_item_status_pad_left_right"
+                android:paddingRight="@dimen/feed_item_status_pad_left_right"
+                android:textColorLink="?myTheme_link_color" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="4dp"
+            android:id="@+id/message"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:text="Foulen like this post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/like"
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:tint="@color/material_red"
+                    android:src="@drawable/thumb_up_outline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"/>
+                <TextView
+                    android:id="@+id/likesCount"
+                    tools:text="56"
+                    android:textColor="?myTheme_text_secondary"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/comment"
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:tint="@color/green_lite"
+                    app:srcCompat="@drawable/comment_outline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"/>
+                <TextView
+                    android:id="@+id/commentsCount"
+                    tools:text="56"
+                    android:textColor="?myTheme_text_secondary"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/share"
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:tint="@color/blue"
+                    app:srcCompat="@drawable/share_outline"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/save"
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:tint="?myTheme_color_inverse"
+                    app:srcCompat="@drawable/bookmark_outline"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"/>
+                <!--android:tint="?myTheme_text_secondary"-->
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

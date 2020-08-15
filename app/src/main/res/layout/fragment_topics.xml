@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:background="?myTheme_card_details_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/creator"
+        android:visibility="visible"
+        tools:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="4dp"
+        app:layout_scrollFlags="scroll">
+
+        <LinearLayout
+            android:id="@+id/following"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_below="@id/description"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="2dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/followersCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="@string/be_the_first"
+                    android:textColor="?myTheme_list_itemDescriptionColor"
+                    android:gravity="center"
+                    />
+                <ImageView
+                    android:tint="?myTheme_button_primary_background"
+                    app:srcCompat="@drawable/bell_outline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+
+            <Button
+                android:layout_marginHorizontal="4dp"
+                android:id="@+id/follow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/follow"
+                />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:scaleType="fitXY"
+            android:padding="4dp"
+            app:srcCompat="@drawable/placeholder"
+            android:layout_height="100dp"
+            android:background="?myThemeBackgroundColored"
+            android:id="@+id/logo" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/logo"
+            android:layout_toRightOf="@+id/logo"
+            tools:text="Owner Name"
+            android:textStyle="bold"
+            android:textColor="?myTheme_list_itemTitleColor"
+            android:textSize="16dp" />
+
+        <TextView
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/name"
+            android:layout_alignStart="@+id/name"
+            android:layout_below="@+id/name"
+            android:layout_marginTop="5dp"
+            tools:text="the best description you ever seen
+dfdgdfg
+dfgdfgdfgdfgdfgd"
+            android:textSize="12dp"
+            android:textColor="?myTheme_list_itemDescriptionColor"
+            android:textStyle="normal" />
+
+    </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_below="@+id/creator"
+        android:name="net.ekhdemni.CategoryFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:context=".presentation.ui.fragments.ForumsFragment"
+        tools:listitem="@layout/item_post"
+        android:scrollbars="none"
+        android:visibility="visible"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+
+
+
+    <include layout="@layout/error_view"
+        tools:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent=".5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent=".5"/>
+
+<!--
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/newTopic"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right|end"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        android:layout_margin="20dp"
+        android:tint="?myTheme_button_primary_text_color"
+        app:backgroundTint="?myTheme_button_primary_background"
+        app:srcCompat="@drawable/ic_quill" />
+    -->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

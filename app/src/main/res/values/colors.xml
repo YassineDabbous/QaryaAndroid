@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#22ba00</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="blue">#0a80d1</color>
+    <color name="blue_link">#3de2ff</color>
+
+    <color name="green">#00bfa5</color>
+    <color name="green_lite">#00ce00</color>
+
+    <color name="grey">#aaa</color>
+    <color name="grey_lite">#e5e5e5</color>
+    <color name="grey_lite2">#f4f4f4</color>
+
+    <color name="material_red">#fa3c4c</color>
+
+
+    <color name="yellow">#FAF13C</color>
+
+    <color name="brand_red">#d51826</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="transparent_light">#25000000</color>
+    <color name="transparent_dark">#501a1a1a</color>
+            <color name="transparent_darkest">#A81A1A1A</color>
+
+    <!--    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#fa3c4c</color>  textlayoutinput default border -->
+
+    <color name="white">#ffffff</color>
+    <color name="white_grey">#EEEEEE</color>
+    <color name="black">#151518</color>
+    <color name="dark">#4c4c51</color>
+
+
+    <!-- dashboard -->
+
+
+    <color name="list_item_title_color_night">#cccccc</color>
+
+
+    <color name="list_item_date_color_night">#dedede</color>
+
+
+    <color name="list_item_description_color_night">#f2f2f2</color>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#d1395c</color>
+    <color name="dot_dark_screen2">#14a895</color>
+    <color name="dot_dark_screen3">#2278d4</color>
+    <color name="dot_dark_screen4">#a854d4</color>
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#f98da5</color>
+    <color name="dot_light_screen2">#8cf9eb</color>
+    <color name="dot_light_screen3">#93c6fd</color>
+    <color name="dot_light_screen4">#e4b5fc</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+        <item>@color/dot_light_screen3</item>
+        <item>@color/dot_light_screen4</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen3</item>
+        <item>@color/dot_dark_screen4</item>
+    </array>
+
+
+
+
+
+</resources>

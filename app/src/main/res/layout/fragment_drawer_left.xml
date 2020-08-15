@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:background="?myTheme_navigationView_background"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true">
+
+            <include layout="@layout/list_item_drawer_header" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/drawer_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/h"
+                android:scrollbars="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/h"
+                tools:listitem="@layout/list_item_drawer_category_left" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?myTheme_navigationView_background"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/logout"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:tint="?myTheme_navigationView_header_icon_color"
+            app:srcCompat="@drawable/logout" />
+
+
+        <ImageView
+            android:id="@+id/styler"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:tint="?myTheme_navigationView_header_icon_color"
+            app:srcCompat="@drawable/brightness_6" />
+
+
+        <ImageView
+            android:id="@+id/player"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:tint="?myTheme_navigationView_header_icon_color"
+            app:srcCompat="@drawable/radio" />
+
+        <ImageView
+            android:id="@+id/bookmarks"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:tint="?myTheme_navigationView_header_icon_color"
+            app:srcCompat="@drawable/bookmark" />
+
+    </LinearLayout>
+</LinearLayout>

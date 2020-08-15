@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?myThemeBackground">
+
+    <include layout="@layout/toolbar"/>
+
+    <androidx.core.widget.NestedScrollView
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="42dp">
+
+<!--
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@color/transparent_light"/>
+-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="380dp">
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPager"
+                    tools:background="@drawable/test"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:id="@+id/dotsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dots_height"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"></LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:background="?myTheme_work_bar_background"
+                android:orientation="horizontal"
+                android:layout_below="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:id="@+id/priceTV"
+                    tools:text="@string/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_margin="5dp"/>
+
+
+                <LinearLayout
+                    android:paddingRight="8dp"
+                    android:paddingLeft="8dp"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+
+                    <ImageView
+                        android:id="@+id/map"
+                        android:tint="?myTheme_text_secondary"
+                        android:src="@android:drawable/ic_dialog_map"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:layout_marginHorizontal="8dp"/>
+
+                    <TextView
+                        android:id="@+id/viewsCount"
+                        android:gravity="end|center_vertical"
+                        tools:text="66"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="?myTheme_text_secondary"
+                        android:textSize="14sp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"/>
+
+                    <ImageView
+                        android:id="@+id/viewsIcon"
+                        android:layout_margin="6dp"
+                        android:gravity="center_vertical"
+                        app:srcCompat="@android:drawable/ic_menu_view"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"/>
+
+
+
+                    <TextView
+                        android:id="@+id/commentsCount"
+                        android:gravity="end|center_vertical"
+                        tools:text="66"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="?myTheme_text_secondary"
+                        android:textSize="14sp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"/>
+
+                    <ImageView
+                        android:id="@+id/commentBtn"
+                        android:layout_margin="6dp"
+                        android:gravity="center_vertical"
+                        app:srcCompat="@drawable/comment_outline"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"/>
+
+
+                    <TextView
+                        android:id="@+id/likesCount"
+                        android:gravity="end|center_vertical"
+                        tools:text="66"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="?myTheme_text_secondary"
+                        android:textSize="14sp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"/>
+
+                    <ImageView
+                        android:id="@+id/likeBtn"
+                        android:layout_margin="6dp"
+                        android:gravity="center_vertical"
+                        app:srcCompat="@drawable/heart_outline"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"/>
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="?myTheme_card_details_background"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:cardElevation="?myTheme_card_elevation"
+                android:layout_margin="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/titleTV"
+                        tools:text="@string/product_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:gravity="center_vertical"/>
+
+                    <TextView
+                        android:layout_marginTop="4dp"
+                        android:id="@+id/addressTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?myTheme_list_itemDescriptionColor"
+                        android:textSize="14sp"
+                        tools:text="@string/address" />
+                    <TextView
+                        android:layout_marginTop="4dp"
+                        android:id="@+id/categoryTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?myTheme_list_itemDescriptionColor"
+                        android:textSize="14sp"
+                        tools:text="@string/category" />
+                    <TextView
+                        android:layout_marginTop="4dp"
+                        android:id="@+id/descriptionTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?myTheme_list_itemDescriptionColor"
+                        android:textSize="14sp"
+                        tools:text="@string/description" />
+
+                    <TextView
+                        android:layout_marginTop="4dp"
+                        android:id="@+id/shippingTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?myTheme_list_itemDescriptionColor"
+                        android:textSize="14sp"
+                        tools:text="@string/shipping" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <LinearLayout
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="?myTheme_work_bar_background"
+        android:orientation="horizontal"
+        android:layout_below="@+id/divider"
+        android:text="@string/slogon"
+        android:id="@+id/userPart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/userPhoto"
+        android:tint="?myTheme_text_secondary"
+        app:srcCompat="@drawable/account_convert"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="8dp"/>
+
+    <TextView
+        android:layout_weight="1"
+        android:id="@+id/usernameTV"
+        tools:text="@string/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="5dp"/>
+
+        <ImageView
+            android:id="@+id/chatBtn"
+            android:tint="?myTheme_text_secondary"
+            app:srcCompat="@drawable/telegram"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="12dp"/>
+
+        <ImageView
+            android:id="@+id/phone"
+            android:tint="?myTheme_text_secondary"
+            android:src="@android:drawable/stat_sys_phone_call"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="8dp"/>
+    </LinearLayout>
+
+
+
+    <include layout="@layout/error_view"
+        tools:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHeight_percent=".5"
+        app:layout_constraintWidth_percent=".5"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

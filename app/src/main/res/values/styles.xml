@@ -1,0 +1,256 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">?myThemePrimary</item>
+        <item name="colorPrimaryDark">?myThemePrimaryDark</item>
+        <item name="colorAccent">?myThemeAccent</item>
+        <item name="android:textColor">?myTheme_textColor</item>
+        <item name="android:editTextColor">?myTheme_color_inverse</item>
+        <item name="android:actionMenuTextColor">@color/colorPrimary</item>
+
+        <item name="android:windowBackground">@null</item><!--<item name="android:windowBackground">?myThemeBackground</item>-->
+        <item name="windowActionBar">false</item>
+        <item name="windowActionBarOverlay">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDisablePreview">true</item>
+
+        <item name="android:fontFamily">@font/cairo</item>
+        <item name="fontFamily">@font/cairo</item>
+
+
+
+
+        <item name="myTheme_list_divider">@color/grey_lite2</item>
+        <item name="myTheme_profile_more_button_color">@color/grey</item>
+        <item name="myThemePlaceholderBackground">@color/grey_lite</item>
+        <item name="myThemePlaceholderBackgroundRounded">@color/grey_lite</item>
+
+        <item name="myTheme_profile_picture_background">@color/transparent</item>
+
+        <item name="myTheme_list_itemDateSecondColor">@color/green</item>
+
+        <item name="myTheme_message_sent_text_background">@color/green</item>
+
+        <item name="myTheme_link_color">@color/blue_link</item>
+        <item name="myTheme_head_text_background">@color/brand_red</item>
+        <item name="myTheme_head_text_color">@color/white</item>
+
+
+        <item name="myTheme_icon_color">?myThemePrimary</item>
+        <item name="myTheme_online">@color/green</item>
+        <item name="myTheme_solution">@color/green</item>
+        <item name="myTheme_list_item_info_icon_color">@color/green</item>
+
+        <item name="myThemeFragmentPadding">@dimen/fragment_horizontal_margin</item>
+
+        <item name="myTheme_spinner_background">?myThemeAccent</item>
+        <item name="myTheme_button_primary_background">?myThemePrimary</item>
+        <item name="myTheme_button_danger_background">@color/brand_red</item>
+        <item name="myTheme_button_info_background">@color/blue</item>
+        <item name="myTheme_button_success_background">@color/green</item>
+        <item name="myTheme_button_secondary_background">@color/white</item>
+        <item name="myTheme_button_transparent_background">@color/transparent</item>
+        <item name="myTheme_button_primary_text_color">@color/white</item>
+        <item name="myTheme_button_secondary_text_color">?myThemePrimary</item>
+        <item name="myTheme_button_transparent_text_color">?myThemePrimary</item>
+
+        <item name="myTheme_widget_background">@color/transparent_light</item>
+        <item name="myTheme_widget_icon_color">?myThemePrimary</item>
+        <item name="myTheme_widget_border_color">?myThemePrimary</item>
+        <item name="myTheme_widget_list_background">@color/transparent</item>
+
+
+    </style>
+
+
+
+    <style name="AppTheme.Day">
+        <item name="myThemePrimary">@color/colorPrimary</item>
+        <item name="myThemePrimaryDark">@color/colorPrimaryDark</item>
+        <item name="myThemeAccent">@color/colorAccent</item>
+
+        <item name="myTheme_colored_text">@color/material_red</item>
+
+        <item name="myTheme_color_inverse">@color/black</item>
+
+        <item name="myTheme_rounded_inverse">@drawable/spinner_dark</item>
+
+
+        <item name="myTheme_card_elevation">@dimen/card_elevation</item>
+
+        <item name="myTheme_textColor">@color/dark</item>
+        <item name="myThemeBackground">@color/grey_lite</item>
+        <item name="myThemeBackgroundSecondary">@color/white</item>
+        <item name="myThemeBackgroundColored">?myThemePrimary</item>
+        <item name="myTheme_list_itemBackground">@color/white</item>
+        <item name="myTheme_list_itemTitleColor">@color/dark</item>
+        <item name="myTheme_list_itemTitleColorInverse">@color/white</item>
+        <item name="myTheme_list_itemDescriptionColor">@color/dark</item>
+        <item name="myTheme_list_itemDateColor">@color/grey</item>
+        <item name="myTheme_list_itemButtonColor">@color/grey</item>
+
+        <item name="myTheme_profile_background">@color/grey_lite2</item>
+
+        <item name="myTheme_work_bar_background">@color/white</item>
+
+        <item name="myThemeToolbarContainerBackground">@color/white</item>
+        <item name="myTheme_toolbar_background">@color/colorPrimary</item>
+        <item name="myTheme_toolbar_darken_background">@color/white</item>
+        <item name="myTheme_toolbar_icon_color">@color/white</item>
+        <item name="myTheme_toolbar_icon_secondary_color">@color/white</item>
+        <item name="myTheme_toolbar_border_color">?myThemePrimary</item>
+        <item name="myTheme_searchView_background">@color/white</item>
+
+        <item name="myTheme_navigationViewBottom_background">@color/colorPrimary</item>
+        <item name="myTheme_navigationView_background">@color/colorPrimary</item>
+        <item name="myTheme_navigationView_icon_color">@color/white</item>
+        <item name="myTheme_navigationView_text_color">@color/white</item>
+        <item name="myTheme_navigationView_header_icon_color">@color/white</item>
+        <item name="myTheme_navigationView_header_text">@color/white</item>
+
+        <item name="myTheme_card_details_background">@color/white</item>
+        <item name="myTheme_card_border">@color/grey</item>
+        <item name="myTheme_senderView_background">@color/white</item>
+
+        <item name="myTheme_text_error">?myThemePrimary</item>
+        <item name="myTheme_text_important">?myThemePrimary</item>
+        <item name="myTheme_text_secondary">@color/grey</item>
+    </style>
+
+
+    <style name="AppTheme.Transparent">
+        <item name="myThemePrimary">@color/colorPrimary</item>
+        <item name="myThemePrimaryDark">@color/colorPrimaryDark</item>
+        <item name="myThemeAccent">@color/colorAccent</item>
+
+        <item name="myTheme_colored_text">@color/yellow</item>
+
+        <item name="myTheme_color_inverse">@color/white</item>
+
+        <item name="myTheme_rounded_inverse">@drawable/spinner_white</item>
+
+        <item name="myTheme_card_elevation">@dimen/card_elevation_none</item>
+
+        <item name="myTheme_textColor">@color/white</item>
+        <item name="myThemeBackground">@color/transparent_dark</item>
+        <item name="myThemeBackgroundSecondary">@color/transparent_light</item>
+        <item name="myThemeBackgroundColored">@color/transparent_dark</item>
+        <item name="myTheme_list_itemBackground">@color/transparent_darkest</item>
+        <item name="myTheme_list_itemTitleColor">@color/white</item>
+        <item name="myTheme_list_itemTitleColorInverse">@color/blue</item>
+        <item name="myTheme_list_itemDescriptionColor">@color/list_item_description_color_night</item>
+
+        <item name="myTheme_list_itemDateColor">@color/list_item_date_color_night</item>
+        <item name="myTheme_list_itemButtonColor">@color/grey</item>
+
+        <item name="myTheme_profile_background">?myThemeBackgroundSecondary</item>
+
+        <item name="myTheme_work_bar_background">@color/transparent_dark</item>
+
+        <item name="myThemeToolbarContainerBackground">@color/transparent_dark</item>
+        <item name="myTheme_toolbar_background">@color/transparent_darkest</item>
+        <item name="myTheme_toolbar_darken_background">@color/dark</item>
+        <item name="myTheme_toolbar_icon_color">?myThemePrimary</item>
+        <item name="myTheme_toolbar_icon_secondary_color">@color/white</item>
+        <item name="myTheme_toolbar_border_color">?myThemePrimary</item>
+        <item name="myTheme_searchView_background">@color/transparent_dark</item>
+
+        <item name="myTheme_navigationViewBottom_background">@color/transparent_light</item>
+        <item name="myTheme_navigationView_background">@color/transparent_light</item>
+        <item name="myTheme_navigationView_icon_color">@color/white</item>
+        <item name="myTheme_navigationView_text_color">@color/white</item>
+        <item name="myTheme_navigationView_header_icon_color">@color/white</item>
+        <item name="myTheme_navigationView_header_text">@color/dark</item>
+
+        <item name="myTheme_card_details_background">@color/transparent_dark</item>
+        <item name="myTheme_card_border">@color/grey</item>
+        <item name="myTheme_senderView_background">@color/transparent_dark</item>
+
+        <item name="myTheme_text_error">?myThemePrimary</item>
+        <item name="myTheme_text_important">@color/green_lite</item>
+        <item name="myTheme_text_secondary">@color/list_item_date_color_night</item>
+    </style>
+
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+
+        <item name="closeIcon">@drawable/close</item>
+
+        <!-- Gets rid of the search icon
+        <item name="searchIcon">@drawable/ic_search</item>-->
+        <!-- Gets rid of the "underline" in the text
+        <item name="queryBackground">@color/white</item>-->
+        <!-- Gets rid of the search icon when the SearchView is expanded
+        <item name="searchHintIcon">@null</item>-->
+        <!-- The hint text that appears when the user has not typed anything
+        <item name="queryHint">@string/search_hint</item> -->
+    </style>
+
+
+
+    <style name="MySpinner">
+        <item name="android:spinnerMode">dialog</item>
+        <!-- <item name="android:popupBackground">?myTheme_card_details_background</item>  doesn't work, instead use background in spinner_dropdown_item -->
+        <item name="android:textColor">?myTheme_color_inverse</item>
+    </style>
+
+    <style name="TextView.InputLabel" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">?myTheme_color_inverse</item><!--?android:textColorHint-->
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+    </style>
+
+
+    <style name="dialogFullscreen" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@color/grey_lite</item><!--<item name="android:windowBackground">?myThemeBackground</item>-->
+    </style>
+
+
+    <style name="Btn" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="Btn.BtnPrimary">
+        <item name="colorButtonNormal">?myTheme_button_primary_background</item>
+    </style>
+
+
+    <style name="ErrorText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="HintText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/green_lite</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+    <style name="MyTransparentTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="boxBackgroundColor">@color/transparent</item>
+        <item name="boxStrokeColor">@color/edit_text_box_border</item> <!-- textlayoutinput default border color is in colors.xml file -->
+        <!-- reference our hint & error styles -->
+        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="errorTextAppearance">@style/ErrorText</item>
+        <item name="android:textColorHint">?myTheme_color_inverse</item>
+        <item name="colorControlNormal">?myTheme_color_inverse</item>
+        <item name="colorControlActivated">?myTheme_color_inverse</item>
+        <item name="colorControlHighlight">?myTheme_color_inverse</item>
+    </style>
+
+    <style name="MyTextInputEditText" parent="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox.Dense">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textColor">?myTheme_color_inverse</item>
+    </style>
+
+
+</resources>

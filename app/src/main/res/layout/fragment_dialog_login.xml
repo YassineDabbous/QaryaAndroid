@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:animateLayoutChanges="true"
+    android:layout_height="match_parent"
+    tools:context=".presentation.fragments.dialogs.LoginDialogFragment"
+    android:padding="8dp"
+    android:background="@drawable/test"
+    android:theme="@style/AppTheme.Transparent">
+
+
+
+    <!-- Registration form-->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:id="@+id/login_registration_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="28dp"
+            android:paddingTop="10dp"
+            android:visibility="gone"
+            tools:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/login_registration_close_button"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:padding="5dp"
+                    android:src="@drawable/close"
+                    android:background="@color/transparent"/>
+
+                <TextView
+                    android:id="@+id/login_registration_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/registration_msg"
+                    android:textSize="18sp"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/MyTransparentTextInputLayout"
+                android:id="@+id/login_registration_firstname_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/MyTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_your_name"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+
+                    android:singleLine="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/MyTransparentTextInputLayout"
+                android:id="@+id/login_registration_email_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/MyTextInputEditText"
+                    android:id="@+id/login_registration_email_text_auto"
+                    android:hint="@string/email"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:nextFocusDown="@+id/login_registration_password"
+                    android:nextFocusForward="@+id/login_registration_password"
+                    android:nextFocusRight="@+id/login_registration_password"
+
+                    android:singleLine="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/MyTransparentTextInputLayout"
+                android:id="@+id/login_registration_password_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/MyTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@android:drawable/ic_menu_view"
+                    android:drawableRight="@android:drawable/ic_menu_view"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+
+                    android:singleLine="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/MyTransparentTextInputLayout"
+                android:id="@+id/login_registration_confirm_password_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/MyTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@android:drawable/ic_menu_view"
+                    android:drawableRight="@android:drawable/ic_menu_view"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+
+                    android:singleLine="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:id="@+id/accept"/>
+                <TextView
+                    android:id="@+id/acceptText"
+                    android:textColor="@color/white"
+                    android:text="@string/accept_terms"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/login_registration_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/register"/>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+    <!-- /////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- Login with email form-->
+    <LinearLayout
+        android:id="@+id/login_email_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:paddingTop="10dp"
+        android:visibility="visible"
+        tools:visibility="visible">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/logo"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:visibility="gone"
+                android:id="@+id/login_email_close_button"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:padding="5dp"
+                android:src="@drawable/close"
+                android:background="@color/transparent"/>
+
+            <TextView
+                android:id="@+id/login_email_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/MyTransparentTextInputLayout"
+            android:id="@+id/login_email_email_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/MyTextInputEditText"
+                android:hint="@string/email"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:nextFocusDown="@+id/login_registration_password"
+                android:nextFocusForward="@+id/login_registration_password"
+                android:nextFocusRight="@+id/login_registration_password"
+                android:singleLine="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:passwordToggleEnabled="true"-->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/MyTransparentTextInputLayout"
+
+            android:id="@+id/login_email_password_wrapper">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/MyTextInputEditText"
+                android:drawableEnd="@android:drawable/ic_menu_view"
+                android:drawableRight="@android:drawable/ic_menu_view"
+                android:hint="@string/password"
+                android:imeActionId="124"
+                android:imeActionLabel="@string/btn_login"
+                android:imeOptions="actionSend"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:singleLine="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/login_email_forgotten_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="sans-serif-light"
+            android:padding="16dp"
+            android:text="@string/btn_forgot_password"
+            android:textSize="16sp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_email_confirm"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:text="@string/btn_login"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_form_registration_btn"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorAccent"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/btn_link_to_register"/>
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_fb_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp" />
+    </LinearLayout>
+    <!-- /////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- Forgotten password form form-->
+    <LinearLayout
+        android:id="@+id/login_email_forgotten_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="28dp"
+        android:paddingTop="10dp"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_gravity="top"
+                android:id="@+id/login_email_forgotten_back_button"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:padding="5dp"
+                android:src="@drawable/close"
+                android:background="@color/transparent"/>
+
+            <TextView
+                android:text="@string/forgot_password_msg"
+                android:id="@+id/login_email_forgotten_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/MyTransparentTextInputLayout"
+            android:id="@+id/login_email_forgotten_email_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/MyTextInputEditText"
+                android:hint="@string/email"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:nextFocusDown="@+id/login_registration_password"
+                android:nextFocusForward="@+id/login_registration_password"
+                android:nextFocusRight="@+id/login_registration_password"
+                android:singleLine="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/login_email_forgotten_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:text="@string/btn_reset_password"/>
+    </LinearLayout>
+    <!-- /////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+
+</RelativeLayout>

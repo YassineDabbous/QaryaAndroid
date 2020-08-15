@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?myThemeBackground"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.fragments.profile.ProfileUpdateFragment">
+
+
+
+    <!-- Tabs -->
+    <com.google.android.material.tabs.TabLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/tabLayout"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?actionBarSize"
+        app:tabInlineLabel="true"
+        app:tabIndicatorHeight="4dp"
+        app:tabBackground="@color/colorPrimary"
+        app:tabTextColor="@color/white"
+        app:tabIndicatorColor="?myTheme_colored_text"
+        app:tabIconTint="@color/white"
+        app:tabIndicatorFullWidth="true"
+        app:tabGravity="fill"
+        app:tabMode="scrollable">
+    </com.google.android.material.tabs.TabLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+        <!--   edit profile   -->
+
+        <LinearLayout
+            android:id="@+id/form_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible"
+            tools:visibility="visible">
+
+
+
+            <!--
+                        <LinearLayout
+                            android:visibility="gone"
+                            tools:visibility="visible"
+                            app:layout_constraintTop_toBottomOf="@+id/productDetailsLayout"
+                            android:id="@+id/workTimeLayout"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_weight="1"
+                                style="@style/MyTransparentTextInputLayout">
+                                <com.google.android.material.textfield.TextInputEditText
+                                    style="@style/MyTextInputEditText"
+                                    android:id="@+id/workTimeStart"
+                                    android:text="08:00"
+                                    android:hint="@string/start_time"
+                                    android:lines="1"
+                                    android:scrollbars="vertical"
+                                    android:inputType="none"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_weight="1"
+                                style="@style/MyTransparentTextInputLayout">
+                                <com.google.android.material.textfield.TextInputEditText
+                                    style="@style/MyTextInputEditText"
+                                    android:id="@+id/workTimeEnd"
+                                    android:text="18:00"
+                                    android:hint="@string/end_time"
+                                    android:lines="1"
+                                    android:scrollbars="vertical"
+                                    android:inputType="none"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+                        -->
+
+
+
+            <LinearLayout
+                android:id="@+id/LocationLayout"
+                app:layout_constraintTop_toBottomOf="@id/headerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_shadow"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/city"
+                    style="@style/TextView.InputLabel"
+                    />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/locationSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:theme="@style/MySpinner"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/padd_10"
+                android:id="@+id/categoryLayout"
+                app:layout_constraintTop_toBottomOf="@id/headerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_shadow"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category"
+                    style="@style/TextView.InputLabel"
+                    />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/categorySpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:theme="@style/MySpinner"
+                    />
+
+            </LinearLayout>
+
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_wrapper"
+                style="@style/MyTransparentTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:nextFocusRight="@+id/phone_wrapper"
+                android:nextFocusDown="@+id/phone_wrapper"
+                android:nextFocusForward="@+id/phone_wrapper">
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/MyTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_your_name"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phone_wrapper"
+                style="@style/MyTransparentTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                android:nextFocusRight="@+id/address_wrapper"
+                android:nextFocusDown="@+id/address_wrapper"
+                android:nextFocusForward="@+id/address_wrapper">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/MyTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_your_phone"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/address_wrapper"
+                style="@style/MyTransparentTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                android:nextFocusRight="@+id/summary_wrapper"
+                android:nextFocusDown="@+id/summary_wrapper"
+                android:nextFocusForward="@+id/summary_wrapper">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/MyTextInputEditText"
+                    android:hint="@string/enter_your_address"
+                    android:inputType="textPostalAddress"
+                    android:maxLines="3"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/summary_wrapper"
+                style="@style/MyTransparentTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                android:nextFocusRight="@+id/confirmBtn"
+                android:nextFocusDown="@+id/confirmBtn"
+                android:nextFocusForward="@+id/confirmBtn">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/MyTextInputEditText"
+                    android:hint="@string/enter_your_summary"
+                    android:inputType="textPostalAddress"
+                    android:maxLines="3"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <Button
+                android:id="@+id/confirmBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/save" />
+
+
+        </LinearLayout>
+
+
+
+        <!--   change email   -->
+
+
+        <LinearLayout
+            android:id="@+id/form_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_wrapper"
+                style="@style/MyTransparentTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                android:nextFocusRight="@+id/email_password_wrapper"
+                android:nextFocusDown="@+id/email_password_wrapper"
+                android:nextFocusForward="@+id/email_password_wrapper">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/MyTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_password_wrapper"
+                style="@style/MyTransparentTextInputLayout"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+
+                android:nextFocusRight="@+id/emailBtn"
+                android:nextFocusDown="@+id/emailBtn"
+                android:nextFocusForward="@+id/emailBtn">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/MyTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@android:drawable/ic_menu_view"
+                    android:drawableRight="@android:drawable/ic_menu_view"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/emailBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/save" />
+
+        </LinearLayout>
+
+
+
+        <!--   change password   -->
+
+
+        <LinearLayout
+            android:id="@+id/form_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_current_wrapper"
+                style="@style/MyTransparentTextInputLayout"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:nextFocusRight="@+id/password_wrapper"
+                android:nextFocusDown="@+id/password_wrapper"
+                android:nextFocusForward="@+id/password_wrapper">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/MyTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@android:drawable/ic_menu_view"
+                    android:drawableRight="@android:drawable/ic_menu_view"
+                    android:hint="@string/password_current"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_wrapper"
+                style="@style/MyTransparentTextInputLayout"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:nextFocusRight="@+id/password_confirm_wrapper"
+                android:nextFocusDown="@+id/password_confirm_wrapper"
+                android:nextFocusForward="@+id/password_confirm_wrapper">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/MyTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@android:drawable/ic_menu_view"
+                    android:drawableRight="@android:drawable/ic_menu_view"
+                    android:hint="@string/password_new"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_confirm_wrapper"
+                style="@style/MyTransparentTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:nextFocusRight="@+id/passwordBtn"
+                android:nextFocusDown="@+id/passwordBtn"
+                android:nextFocusForward="@+id/passwordBtn">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/MyTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@android:drawable/ic_menu_view"
+                    android:drawableRight="@android:drawable/ic_menu_view"
+                    android:hint="@string/password_confirm"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/passwordBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/save" />
+
+        </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+</LinearLayout>

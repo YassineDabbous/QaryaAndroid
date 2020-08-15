@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="?myTheme_toolbar_background"
+    app:cardElevation="?myTheme_card_elevation"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <LinearLayout
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/menuBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@color/transparent"
+                android:tint="@color/white"
+                app:srcCompat="@drawable/menu" />
+
+            <RelativeLayout
+                android:id="@+id/searcher"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/rounded_shadow">
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search_results_for"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/chatBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical">
+
+                <ImageButton
+                    android:id="@+id/chat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:onClick="onChatClicked"
+                    android:scaleType="fitCenter"
+                    android:tint="?myTheme_toolbar_icon_secondary_color"
+                    app:srcCompat="@drawable/telegram" />
+
+                <TextView
+                    android:id="@+id/convsCountTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/chat"
+                    android:layout_alignRight="@+id/chat"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/headview_counter"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:textColor="?myTheme_head_text_color"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    tools:text="2"
+                    tools:visibility="visible" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <ImageButton
+                android:id="@+id/homeBtn"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_gravity="center_vertical"
+                android:tint="@color/white"
+                android:onClick="onHomeBtnClicked"
+                app:srcCompat="@drawable/home_circle"
+                android:background="@color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageButton
+                android:id="@+id/productsBtn"
+                app:srcCompat="@drawable/shopping"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:tint="@color/white"
+                android:background="@color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageButton
+                android:id="@+id/usersBtn"
+                app:srcCompat="@drawable/account_hard_hat"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:tint="@color/white"
+                android:background="@color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+
+            <ImageButton
+                android:id="@+id/storesBtn"
+                app:srcCompat="@drawable/store"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:tint="@color/white"
+                android:background="@color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:id="@+id/btn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/reqsBtn"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:onClick="onReqsClicked"
+                    android:scaleType="fitCenter"
+                    android:tint="?myTheme_toolbar_icon_secondary_color"
+                    app:srcCompat="@drawable/account_multiple_outline" />
+
+                <TextView
+                    android:id="@+id/reqsCountTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/reqsBtn"
+                    android:layout_alignRight="@+id/reqsBtn"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/headview_counter"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:textColor="?myTheme_head_text_color"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    tools:text="2"
+                    tools:visibility="visible" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:id="@+id/btn5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/notifs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:onClick="onNotifClicked"
+                    android:scaleType="fitCenter"
+                    android:tint="?myTheme_toolbar_icon_secondary_color"
+                    app:srcCompat="@drawable/bell_outline" />
+
+                <TextView
+                    android:id="@+id/notifsCountTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/notifs"
+                    android:layout_alignRight="@+id/notifs"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/headview_counter"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:textColor="?myTheme_head_text_color"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    tools:text="2"
+                    tools:visibility="visible" />
+            </RelativeLayout>
+
+        </LinearLayout>
+        <!--
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingTop="12dp"
+                    android:background="?myTheme_toolbar_background">
+
+                    <RelativeLayout
+                        android:id="@+id/btn0"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/btn1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:tint="?myTheme_toolbar_icon_secondary_color"
+                            app:srcCompat="@drawable/home_circle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/menu"
+                            android:onClick="onSearchClicked"
+                            android:scaleType="fitCenter"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/btn1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/btn0"
+                        app:layout_constraintEnd_toStartOf="@id/btn2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:id="@+id/homeBtn"
+                            app:srcCompat="@drawable/post_outline"
+                            android:tint="?myTheme_toolbar_icon_secondary_color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onHomeBtnClicked"
+                            android:scaleType="fitCenter" />
+
+                    </RelativeLayout>
+
+
+
+                    <RelativeLayout
+                        android:id="@+id/btn2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/btn1"
+                        app:layout_constraintEnd_toStartOf="@id/btn3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:tint="?myTheme_toolbar_icon_secondary_color"
+                            app:srcCompat="@drawable/account_multiple_outline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/reqsBtn"
+                            android:onClick="onReqsClicked"
+                            android:scaleType="fitCenter"/>
+
+                        <TextView
+                            android:id="@+id/reqsCountTV"
+                            tools:visibility="visible"
+                            android:visibility="gone"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignEnd="@+id/reqsBtn"
+                            android:layout_alignRight="@+id/reqsBtn"
+                            android:layout_alignParentTop="true"
+                            android:background="@drawable/headview_counter"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"
+                            tools:text="2"
+                            android:textColor="?myTheme_head_text_color"
+                            android:textSize="12sp" />
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/btn3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/btn2"
+                        app:layout_constraintEnd_toStartOf="@id/btn4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:tint="?myTheme_toolbar_icon_secondary_color"
+                            app:srcCompat="@drawable/telegram"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chat"
+                            android:onClick="onChatClicked"
+                            android:scaleType="fitCenter"/>
+
+                        <TextView
+                            android:id="@+id/convsCountTV"
+                            tools:visibility="visible"
+                            android:visibility="gone"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignEnd="@+id/chat"
+                            android:layout_alignRight="@+id/chat"
+                            android:layout_alignParentTop="true"
+                            android:background="@drawable/headview_counter"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"
+                            tools:text="2"
+                            android:textColor="?myTheme_head_text_color"
+                            android:textSize="12sp" />
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/btn4"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/btn3"
+                        app:layout_constraintEnd_toStartOf="@id/btn5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:tint="?myTheme_toolbar_icon_secondary_color"
+                            app:srcCompat="@drawable/magnify"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/searcher"
+                            android:onClick="onSearchClicked"
+                            android:scaleType="fitCenter"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/btn5"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/btn4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:tint="?myTheme_toolbar_icon_secondary_color"
+                            app:srcCompat="@drawable/bell_outline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/notifs"
+                            android:onClick="onNotifClicked"
+                            android:scaleType="fitCenter"/>
+
+                        <TextView
+                            android:id="@+id/notifsCountTV"
+                            tools:visibility="visible"
+                            android:visibility="gone"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignEnd="@+id/notifs"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignRight="@+id/notifs"
+                            android:background="@drawable/headview_counter"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"
+                            tools:text="2"
+                            android:textColor="?myTheme_head_text_color"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                -->
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

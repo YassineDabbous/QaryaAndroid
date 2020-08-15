@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!--
+    <LinearLayout
+        tools:visibility="visible"
+        android:visibility="gone"
+        android:id="@+id/pageHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="?myThemeBackground"
+        android:gravity="center_vertical"
+        android:layout_marginHorizontal="2dp"
+        android:padding="5dp">
+        <ImageView
+            android:id="@+id/pageAction"
+            android:tint="?myTheme_navigationView_icon_color"
+            app:srcCompat="@drawable/bell_off_outline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/pageTitle"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textAlignment="viewEnd"
+            android:layout_gravity="end"
+            android:text="@string/chat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/pageHeader"
+        android:paddingBottom="8dp"
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_message_received"
+        android:layout_above="@+id/layout_chatbox">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <include layout="@layout/error_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone" />
+
+    <View
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#dfdfdf"
+        android:layout_above="@+id/layout_chatbox"/>
+
+    <LinearLayout
+        android:id="@+id/closed_message"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:background="?myTheme_toolbar_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:layout_margin="4dp">
+
+        <TextView
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:text="@string/cannot_reply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/layout_chatbox"
+        android:layout_alignParentBottom="true"
+        app:cardBackgroundColor="?myTheme_toolbar_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp">
+    <LinearLayout
+        android:background="@color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:minHeight="40dp"
+        android:layout_margin="4dp">
+
+        <ImageView
+            android:id="@+id/importerView"
+            android:background="@drawable/circle_colored"
+            android:src="@drawable/fab_add"
+            android:layout_gravity="center_vertical"
+            android:padding="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:textColor="@color/white"
+            tools:text="Hi Muhamad, how are you?"
+            android:textColorHint="?myTheme_textColor"
+            android:background="@android:color/transparent"
+            android:id="@+id/chatboxEditText"
+            android:hint="@string/write_message"
+            android:layout_gravity="center_vertical"
+            android:padding="4dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:maxLines="6"/>
+
+        <ImageView
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:id="@+id/chatboxSendButton"
+            android:padding="2dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/telegram"
+            android:tint="?myTheme_toolbar_icon_color"
+            android:layout_weight="0" />
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1011416552474",
+    "firebase_url": "https://qarya-net.firebaseio.com",
+    "project_id": "qarya-net",
+    "storage_bucket": "qarya-net.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011416552474:android:44920854fadd6151b3ada3",
+        "android_client_info": {
+          "package_name": "app.qarya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011416552474-jrjn25sq6gkdf7becavc7tfcegeun4m0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMpDRzWeifK-mugviQr9BfQ7w2hy5715A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011416552474-jrjn25sq6gkdf7becavc7tfcegeun4m0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

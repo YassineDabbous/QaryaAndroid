@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Header -->
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="?myTheme_card_details_background"
+        app:cardCornerRadius="@dimen/card_radius"
+        android:elevation="?myTheme_card_elevation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:visibility="visible"
+        android:visibility="gone"
+        android:id="@+id/pageHeader"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="4dp">
+
+    <LinearLayout
+        android:background="?myTheme_toolbar_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginHorizontal="2dp"
+        android:padding="5dp">
+        <ImageView
+            android:id="@+id/pageAction"
+            android:tint="?myTheme_color_inverse"
+            app:srcCompat="@drawable/settings_outline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/pageTitle"
+            android:layout_weight="1"
+            android:textColor="?myTheme_color_inverse"
+            android:textAlignment="viewEnd"
+            android:layout_gravity="end"
+            android:text="@string/notifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="1"
+        tools:listitem="@layout/item_general"
+        app:layout_constraintTop_toBottomOf="@id/pageHeader"
+        app:layout_constraintBottom_toTopOf="@id/tabLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintWidth_percent=".5"
+        />
+
+    <!-- Tabs -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:background="?myTheme_toolbar_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:minHeight="?actionBarSize"
+        app:tabInlineLabel="true"
+        app:tabIndicatorHeight="4dp"
+        app:tabBackground="?myTheme_toolbar_background"
+        app:tabTextColor="@color/white"
+        app:tabIndicatorColor="?myTheme_colored_text"
+        app:tabIconTint="@color/white"
+        app:tabIndicatorFullWidth="true"
+        app:tabGravity="fill"
+        app:tabMode="scrollable">
+    </com.google.android.material.tabs.TabLayout>
+
+<!--
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:visibility="gone"
+        android:id="@+id/cpd"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent=".5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent=".5"
+        />
+-->
+<!--
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:id="@+id/newTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right|end"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        android:tint="?myTheme_button_primary_text_color"
+        app:backgroundTint="?myTheme_button_primary_background"
+        app:srcCompat="@drawable/quill"
+        android:layout_margin="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+-->
+
+
+    <!-- Posting options -->
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fab_menu"
+        tools:visibility="visible"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        xmlns:fab="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        fab:menu_colorNormal="@color/colorPrimary"
+        fab:menu_colorPressed="@color/colorPrimaryDark"
+        fab:menu_colorRipple="#99FFFFFF"
+        fab:menu_icon="@drawable/fab_add"
+        fab:menu_labels_textColor="#FFFFFF"
+        fab:menu_labels_colorNormal="#333333"
+        fab:menu_labels_colorPressed="#444444"
+        fab:menu_labels_colorRipple="#66FFFFFF">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_add_store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/store"
+            fab:fab_size="mini"
+            fab:fab_label="@string/create_sale_post" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_add_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/file_edit_outline"
+            fab:fab_size="mini"
+            fab:fab_label="@string/create_note" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_add_story"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/flash_outline"
+            fab:fab_size="mini"
+            fab:fab_label="@string/create_story" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_add_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/square_edit_outline"
+            fab:fab_size="mini"
+            fab:fab_label="@string/create_post" />
+
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+
+    <!-- Alerts View -->
+    <include layout="@layout/error_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent=".5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent=".5"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

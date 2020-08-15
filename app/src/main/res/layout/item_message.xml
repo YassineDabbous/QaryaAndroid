@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="?myTheme_list_itemBackground"
+    app:cardCornerRadius="0dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="4dp">
+
+
+
+        <LinearLayout
+            android:background="?myTheme_toolbar_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:layout_margin="2dp"
+                android:id="@+id/user_photo"
+                android:background="@drawable/circle_white"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:srcCompat="@drawable/logo"/>
+
+            <TextView
+                android:layout_margin="2dp"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?myTheme_list_itemTitleColor"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="Username" />
+
+            <LinearLayout
+                android:id="@+id/toUser"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_margin="2dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:tint="?myTheme_list_itemTitleColor"
+                    android:src="@drawable/exo_controls_fastforward"/>
+
+                <TextView
+                    android:layout_margin="2dp"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/toUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="?myTheme_list_itemTitleColor"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:text="Username" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_margin="2dp"
+                android:id="@+id/tv_time"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?myTheme_list_itemDateColor"
+                tools:text="10h30"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            tools:text="@string/description" />
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

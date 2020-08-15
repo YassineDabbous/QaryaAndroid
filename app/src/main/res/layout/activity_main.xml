@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?myThemeBackground"
+    android:orientation="vertical"
+    tools:context=".presentation.activities.MainActivity"
+    >
+
+
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:visibility="visible"
+        tools:visibility="visible"
+        android:scaleType="fitXY"
+        android:src="@drawable/test"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/drawer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:openDrawer="start">
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include layout="@layout/toolbar_home"/>
+
+<!--
+                <TextView
+                    android:id="@+id/prayTimes"
+                    android:padding="4dp"
+                    android:visibility="gone"
+                    android:background="@color/transparent_light"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    tools:text="Fajr - 04:52 am
+Sunrise - 06:15 am
+Dhuhr - 12:24 pm
+Asr - 04:49 pm
+Sunset - 06:34 pm
+Maghrib - 06:34 pm
+Isha - 07:52 pm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+-->
+
+
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/swiperefresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <include layout="@layout/content_main" />
+
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            </LinearLayout>
+
+
+            <fragment
+                tools:visibility="gone"
+                android:name="app.qarya.presentation.fragments.DrawerFragmentLeft"
+                android:id="@+id/main_navigation_drawer_fragment"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:fitsSystemWindows="true"
+                app:layout="@layout/fragment_drawer_left"
+                tools:layout="@layout/fragment_drawer_left"/>
+
+        </androidx.drawerlayout.widget.DrawerLayout>
+
+
+        <!-- Adding bottom sheet after main content -->
+        <include layout="@layout/bottom_sheet" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+    <androidx.appcompat.widget.SearchView
+        android:background="?myTheme_searchView_background"
+        tools:background="@color/white"
+        style="@style/SearchViewStyle"
+        android:id="@+id/searchView"
+        android:visibility="gone"
+        tools:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </androidx.appcompat.widget.SearchView>
+
+
+    <include
+        android:id="@+id/llProgressBar"
+        android:visibility="gone"
+        tools:visibility="visible"
+        layout="@layout/loading"/>
+
+</RelativeLayout>

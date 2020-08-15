@@ -1,0 +1,48 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="fragment_horizontal_margin">8dp</dimen>
+
+    <dimen name="spacing">8dp</dimen>
+
+    <dimen name="padd_10">10dp</dimen>
+
+
+
+
+    <!-- card dimens-->
+    <dimen name="card_margin">5dp</dimen>
+    <dimen name="card_radius">8dp</dimen>
+
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_elevation_none">1dp</dimen>
+
+    <dimen name="album_cover_height">130dp</dimen>
+    <dimen name="album_title_padding">10dp</dimen>
+    <dimen name="album_title">15dp</dimen>
+    <dimen name="ic_album_overflow_width">20dp</dimen>
+    <dimen name="ic_album_overflow_margin_top">10dp</dimen>
+
+
+
+    <!-- for images picker icons -->
+    <dimen name="with_simple_drawee">60dp</dimen>
+    <dimen name="raduis_img">5dp</dimen>
+    <dimen name="with_btn">20dp</dimen>
+
+
+
+    <dimen name="dots_height">30dp</dimen>
+
+
+
+    <!-- jobs-->
+
+
+    <dimen name="feed_item_padding_left_right">4dp</dimen>
+    <dimen name="feed_item_profile_info_padd">4dp</dimen>
+    <dimen name="feed_item_profile_name">15dp</dimen>
+    <dimen name="feed_item_timestamp">12dp</dimen>
+    <dimen name="feed_item_status_pad_left_right">2dp</dimen>
+
+
+</resources>

@@ -1,0 +1,242 @@
+<resources>
+    <!-- Ads
+    <string name="admob_initialize" translatable="false">ca-app-pub-5084130404881659~2426531522</string>
+    <string name="admob_banner" translatable="false">ca-app-pub-5084130404881659/2398611365</string> -->
+    <!-- TEST-->
+        <string name="admob_initialize" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+        <string name="admob_banner" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+        <string name="admob_interstitial" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+
+    <!-- FACEBook -->
+    <string name="facebook_app_id" translatable="false">869065223590120</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb869065223590120</string>
+
+    <string name="app_name">Qarya</string>
+    <string name="slogon">قرية, مكان للجميع</string> <!-- مهما نسيت الوطن و تغربت Never forget where you come from!-->
+    <string name="prayer_timing">مواقيت الصلاة</string>
+    <string name="category">القسم</string>
+    <string name="city">المدينة</string>
+    <string name="workTime">وقت العمل</string>
+    <string name="address">العنوان البريدي</string>
+    <string name="create_note">كتابة مقال</string>
+    <string name="create_post">منشور جديد</string>
+    <string name="create_sale_post">إضافة إعلان بيع أو شراء</string>
+    <string name="create_story">إضافة لقطة</string>
+    <string name="commenting_closed">التعليقات مغلقة</string>
+    <string name="Required_field">ضروري</string>
+    <string name="Check_the_entered_data">تأكد من البيانات المدخلة</string>
+    <string name="internal_error">خطأ داخلي</string>
+    <string name="server_permisson_error">لا تملك الصلاحيات الكافية</string>
+    <string name="msg_gps_network_not_enabled">هذه الخدمة تحتاج إلى تفعيل الـGPS</string>
+    <string name="open_location_settings">فتح إعدادات الخرائط</string>
+
+    <string name="update_profile">تعديل الملف</string>
+    <string name="update_email">البريد الإلكتروني</string>
+    <string name="update_password">كلمة المرور</string>
+
+    <string name="content_description_open_navigation_drawer">Open navigation drawer</string>
+    <string name="content_description_close_navigation_drawer">Close navigation drawer</string>
+
+    <string name="rooms">الغرف</string>
+    <string name="conversations">المحادثات</string>
+    <string name="cannot_reply">لا يمكنك الرد على هذه المحادثة.</string>
+
+    <string name="empty">هذا القسم فارغ</string>
+
+    <string name="write_message">أكتب رسالتك</string>
+
+    <string name="refresh">تحديث</string>
+    <string name="are_you_sure">هل أنت متأكد</string>
+
+    <string name="wait">إنتظر...</string>
+    <string name="check_network">لا يوجد اتصال البيانات! تحقق من الشبكة.</string>
+    <string name="share_via">نشر عبر</string>
+    <string name="follow">متابعة</string>
+    <string name="unfollow">الغاء المتابعة</string>
+
+    <string name="message">رسالة</string>
+    <string name="friendship">صداقة</string>
+
+    <string name="delete">مسح</string>
+    <string name="save">حفظ</string>
+    <string name="accept_terms">أقبل <a href="#" target="blank"> شروط الخدمة </a> التالية.</string>
+
+    <string name="add">إضافة</string>
+    <string name="accept">موافقة</string>
+    <string name="reject">رفض</string>
+    <string name="Cancel">إلغاء</string>
+    <string name="Cancel_block">إلغاء الحظر</string>
+
+    <string-array name="relationsNew">
+        <item>إضافة</item>
+        <item>حظر</item>
+    </string-array>
+    <string-array name="relationsRequestSent">
+        <item>إلغاء الطلب</item>
+        <item>حظر</item>
+    </string-array>
+    <string-array name="relationsFriends">
+        <item>مسح</item>
+        <item>حظر</item>
+    </string-array>
+    <string-array name="relationsRequest">
+        <item>قبول</item>
+        <item>رفض</item>
+        <item>حظر</item>
+    </string-array>
+
+
+
+    <string-array name="shipping_ability">
+        <item>حسب الإتفاق</item>
+        <item>نعم</item>
+        <item>لا</item>
+    </string-array>
+
+    <string-array name="chat_files">
+        <item>صورة</item>
+        <item>فيديو</item>
+        <!-- <item>ملف صوتي</item> -->
+    </string-array>
+
+
+    <string-array name="room_members_options">
+        <item>الملف الشخصي</item>
+        <item>رسالة عامة</item>
+        <item>رسالة على الخاص</item>
+    </string-array>
+    <string-array name="room_members_options_admin">
+        <item>الملف الشخصي</item>
+        <item>رسالة عامة</item>
+        <item>رسالة على الخاص</item>
+        <item>طرد</item>
+    </string-array>
+
+    <string-array name="sharer_options">
+        <item>نشر كرسالة خاصة</item>
+        <item>نشر عبر تطبيقات خارجية</item>
+    </string-array>
+
+    <string-array name="chat_settings">
+        <item>حالة النشاط</item>
+        <item>غلق/فتح رسائل الخاص</item>
+        <item>إيقاف/تشغيل التنبيهات</item>
+    </string-array>
+    <string-array name="conv_options">
+        <item>غلق/فتح المحادثة الحالية</item>
+        <item>إبلاغ عن سوء تصرف</item>
+    </string-array>
+    <string-array name="user_status">
+        <item>متصل</item>
+        <item>مش متصل</item>
+        <item>مشغول</item>
+    </string-array>
+
+
+
+    <string name="friends">الأصدقاء</string>
+    <string name="requests">الطلبات</string>
+    <string name="requested">الطلبات المرسلة</string>
+    <string name="suggested">أصدقاء مقترحون</string>
+    <string name="blocked">المحظورون</string>
+
+
+
+
+    <string name="product_name">إسم البضاعة</string>
+    <string name="note_title">عنوان المقال</string>
+    <string name="note_text">نص المقال</string>
+    <string name="post_hint">بما تفكر ؟</string>
+
+    <string name="start_time">بدأ العمل</string>
+    <string name="end_time">أنتهاء العمل</string>
+
+    <string name="phone">رقم الهاتف</string>
+    <string name="price">الثمن</string>
+    <string name="shipping">التوصيل</string>
+
+    <string name="notifications">التنبيهات</string>
+
+    <string name="posts">منشورات</string>
+    <string name="products">منتوجات</string>
+    <string name="users">مستخدمون</string>
+
+    <string name="chat">نقاشات</string>
+
+    <string name="description">الوصف</string>
+
+    <string name="email">البريد الإلكتروني</string>
+    <string name="enter_your_name">من فضلك ادخل اسمك الكامل</string>
+    <string name="enter_your_summary">نبذة عنك</string>
+    <string name="enter_your_phone">رقم هاتفك</string>
+    <string name="enter_your_address">عنوانك البريدي: مقر السكن أو العمل</string>
+    <string name="minimum_password">كلمة المرور قصيرة جدًا ، بحد أدنى 6 أحرف!</string>
+    <string name="need_auth">يجب عليك تسجيل الدخول أولا</string>
+
+    <string name="password">كلمة المرور</string>
+    <string name="password_current">كلمة المرور الحالية</string>
+    <string name="password_new">كلمة المرور الجديدة</string>
+    <string name="password_confirm">تأكيد كلمة المرور الجديدة</string>
+
+    <string name="btn_login">تسجيل الدخول</string>
+    <string name="register">تسجيل حساب</string>
+    <string name="btn_link_to_register">لست عضوا؟ أنشئ حسابك هنا!</string>
+    <string name="registration_msg">أنشئ حسابك هنا!</string>
+    <string name="btn_forgot_password">نسيت كلمة المرور السرية؟</string>
+    <string name="btn_reset_password">إعادة تعيين كلمة المرور</string>
+    <string name="forgot_password_msg">نحتاج فقط إلى معرف البريد الإلكتروني المسجل لإرسال إرشادات إعادة تعيين كلمة المرور الخاصة بك.</string>
+
+
+    <string name="please_choose">اختر من فضلك</string>
+    <string name="choose_photo">اختيار صورة</string>
+    <string name="capture_photo">التقط صورة</string>
+
+
+    <string name="write_comment">أضف تعليقا</string>
+    <string name="more">المزيد</string>
+
+
+    <string name="like">أعجبني</string>
+    <string name="liked">إلغاء الإعجاب</string>
+
+
+    <string name="report">بلغ عن سوء تصرف</string>
+    <string name="report_cause">سبب الإبلاغ (اختياري)</string>
+
+    <string name="set_as_background">إعتماد الصورة كخلفية للتطبيق</string>
+
+    <string name="more_comments">المزيد من التعليقات</string>
+    <string name="followers">المتابعون</string>
+    <string name="be_the_first">كن الأول !</string>
+
+    <string name="search_results_for">نتائج البحث عن </string>
+
+
+    <!-- CHAT -->
+    <string name="action_leave">غادر</string>
+    <string name="action_send">أرسل</string>
+    <string name="prompt_message">رسالة</string>
+
+    <string name="connect">تم الإتصال</string>
+    <string name="disconnect">تم قطع الاتصال، يرجى التحقق من اتصالك بالإنترنت</string>
+    <string name="error_connect">فشل الإتصال</string>
+
+    <!-- messages -->
+    <string name="message_welcome">مرحبا بيك –</string>
+    <plurals name="message_participants">
+        <item quantity="one">هناك %d مواطن</item>
+        <item quantity="other">هناك %d مواطن</item>
+    </plurals>
+    <string name="message_user_banned">تم حظر %s</string>
+    <string name="message_user_joined">%s إنضم</string>
+    <string name="message_user_left">%s غادر</string>
+    <string name="user_action_typing">يكتب</string>
+    <string name="message_want_leave">هل تريد مغادرة الغرفة؟</string>
+    <string name="change_description">تعديل وصف الغرفة</string>
+    <string name="please_wait">ستنى شوية ...</string>
+
+    <string name="message_max_photos">max photos are 4</string>
+    <string name="uploading_pictures">uploading pictures</string>
+
+
+</resources>

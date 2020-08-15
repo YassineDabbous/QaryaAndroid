@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/messageBody"
+        android:background="@drawable/message_sent_text_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            android:id="@+id/messageTextView"
+            android:linksClickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:maxWidth="240dp"
+            android:padding="6dp"
+            tools:text="hello, hello!"
+            android:textColor="#ffffff" />
+
+        <ImageView
+            android:id="@+id/messageImageView"
+            android:layout_width="280dp"
+            android:layout_height="240dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:maxWidth="240dp"
+            app:srcCompat="@drawable/placeholder"/>
+
+
+        <app.qarya.utils.MyMediaPlayer
+            android:id="@+id/messagePlayer"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:maxWidth="240dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_message_time"
+        tools:text="11:40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/messageBody"
+        app:layout_constraintRight_toLeftOf="@+id/messageBody" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

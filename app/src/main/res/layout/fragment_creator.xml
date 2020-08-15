@@ -1,0 +1,249 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?myThemeBackgroundSecondary"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/headerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:rotation="@integer/locale_mirror_flip"
+                    android:id="@+id/backBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/transparent"
+                    android:tint="?myTheme_color_inverse"
+                    app:srcCompat="@drawable/ef_ic_arrow_back" />
+
+
+                <TextView
+                    android:textAlignment="viewStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="@string/create_post" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/sendBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/description"
+                    android:text="@string/save"
+                    android:theme="@style/Btn.BtnPrimary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/categoryLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_shadow"
+                android:orientation="vertical"
+                android:padding="2dp"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/headerView"
+                tools:visibility="visible">
+
+                <TextView
+                    style="@style/TextView.InputLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/categorySpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:theme="@style/MySpinner" />
+
+            </LinearLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/titleLayout"
+                style="@style/MyTransparentTextInputLayout"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/categoryLayout"
+                tools:visibility="visible">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/titleEditText"
+                    style="@style/MyTextInputEditText"
+                    android:hint="@string/product_name"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/descriptionLayout"
+                style="@style/MyTransparentTextInputLayout"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/titleLayout"
+                tools:visibility="visible">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/descriptionEditText"
+                    style="@style/MyTextInputEditText"
+                    android:gravity="top|start"
+                    android:hint="@string/note_text"
+                    android:inputType="textMultiLine"
+                    android:lines="4"
+                    android:scrollbars="vertical" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/addressLayout"
+                style="@style/MyTransparentTextInputLayout"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/descriptionLayout"
+                tools:visibility="visible">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/addressEditText"
+                    style="@style/MyTextInputEditText"
+                    android:hint="عنوان المحل"
+                    android:inputType="textMultiLine"
+                    android:lines="2"
+                    android:scrollbars="vertical" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <LinearLayout
+                android:id="@+id/productDetailsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/addressLayout"
+                tools:visibility="visible">
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/MyTransparentTextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phoneTV"
+                        style="@style/MyTextInputEditText"
+                        android:hint="@string/phone"
+                        android:inputType="phone"
+                        android:lines="1"
+                        android:scrollbars="vertical" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/MyTransparentTextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/priceTV"
+                        style="@style/MyTextInputEditText"
+                        android:hint="@string/price"
+                        android:inputType="number"
+                        android:lines="1"
+                        android:scrollbars="vertical" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/shippingLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_shadow"
+                    android:orientation="vertical"
+                    android:padding="2dp"
+                    app:layout_constraintTop_toBottomOf="@id/headerView">
+
+                    <TextView
+                        style="@style/TextView.InputLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/shipping" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/shippingSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:entries="@array/shipping_ability"
+                        android:prompt="@string/shipping"
+                        android:theme="@style/MySpinner" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <include
+                layout="@layout/error_view"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHeight_percent=".5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".5"
+                tools:visibility="gone" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/picsPicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/productDetailsLayout">
+
+        <LinearLayout
+            android:background="@drawable/rounded_shadow"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <ImageView
+                android:tint="?myTheme_color_inverse"
+                android:id="@+id/picture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_add" />
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbarSize="0dp">
+
+            <LinearLayout
+                android:id="@+id/containerPhotos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+    </LinearLayout>
+
+</LinearLayout>
