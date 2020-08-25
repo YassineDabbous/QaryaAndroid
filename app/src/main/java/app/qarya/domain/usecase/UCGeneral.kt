@@ -94,7 +94,7 @@ class UCGeneral : UseCase() {
             override fun onSuccess(response: BaseResponse<PagingResponse<User>>) {
                 super.onSuccess(response)
                 if (response.data!=null)
-                    closure.onSuccess(ModelHolder.paginationUsers(response.data))
+                    closure.onSuccess(ModelHolder.paginate(response.data, ModelType.USER))
             }
 
             override fun onError(failure: Failure?) {
@@ -125,7 +125,7 @@ class UCGeneral : UseCase() {
 
 
     fun broadcasts(closure: Closure<List<Broadcast>>){
-        getApi().broadcasts().enqueue(object: MyCallBack<BaseResponse<List<Broadcast>>>(){
+        getApi().subscriptions().enqueue(object: MyCallBack<BaseResponse<List<Broadcast>>>(){
             override fun onSuccess(response: BaseResponse<List<Broadcast>>?) {
                 super.onSuccess(response)
                 closure.onSuccess(response?.data)

@@ -137,7 +137,7 @@ class RoomsFragment : MyRecyclerFragment<Room?, VMChat?>() {
     internal var actions = R.array.chat_settings
     override fun showOptions() {
         //super.showOptions()
-        AlertUtils.popupList(activity!!, actions, object : AlertUtils.Alert() {
+        AlertUtils.popupList(requireActivity(), actions, object : AlertUtils.Alert() {
             override fun onAccept(o: Any) {
                 val which = o as Int
                 when (which) {

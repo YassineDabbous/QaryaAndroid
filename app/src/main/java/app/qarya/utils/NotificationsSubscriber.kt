@@ -7,6 +7,7 @@ import app.qarya.presentation.base.MyActivity
 import tn.core.util.Utilities
 
 class NotificationsSubscriber {
+
     companion object {
         fun subscribe(broadcasts:List<Broadcast>){
             if (YDUserManager.auth()!=null){
@@ -15,8 +16,8 @@ class NotificationsSubscriber {
                 OneSignal.sendTag("user", "user"+ YDUserManager.auth().id)
             }
             for (b in broadcasts) {
-                MyActivity.log("Follow Broadcast: " + b.broadvalue)
-                OneSignal.sendTag(b.broadkey, b.broadvalue)
+                MyActivity.log("Follow Broadcast: " + b.tagKey)
+                OneSignal.sendTag(b.tagKey, b.tagKey)
             }
         }
 
@@ -27,4 +28,6 @@ class NotificationsSubscriber {
             }
         }
     }
+
+    
 }

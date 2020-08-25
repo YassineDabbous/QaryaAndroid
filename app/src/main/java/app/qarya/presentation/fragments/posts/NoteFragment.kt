@@ -118,7 +118,7 @@ open class NoteFragment : BasePostFragment() {
             if (url.contains(MyConst.HASHTAGS_URL)) {
                 val tag = url.replace(MyConst.HASHTAGS_URL, "")
                 (activity as MyActivity?)!!.setFragment(PostsFragment.newInstance("#$tag"))
-            } else openLink(context!!, url)
+            } else openLink(requireContext(), url)
         }
         likesCountTV!!.text = post!!.likesCount.toString()
         nameTextView!!.text = post!!.getUname()

@@ -63,7 +63,7 @@ public class NotificationsFragment extends MyRecyclerFragment<Notification, VMGe
         recyclerView.setAdapter(adapter);
         view.findViewById(R.id.pageHeader).setVisibility(View.VISIBLE);
         view.findViewById(R.id.pageAction).setOnClickListener(view1 -> {
-            setFragment(CategoriesFragment.newInstance(ModelType.POST));
+            setFragment(SubscriptionsFragment.newInstance(0));
         });
         return view;
     }

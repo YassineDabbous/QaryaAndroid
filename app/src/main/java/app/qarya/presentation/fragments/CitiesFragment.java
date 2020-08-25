@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import app.qarya.R;
 import app.qarya.model.models.City;
-import app.qarya.model.models.responses.FollowResponse;
+import app.qarya.model.models.requests.FollowResponse;
 import app.qarya.presentation.adapters.CityAdapter;
 import app.qarya.presentation.base.MyActivity;
 import app.qarya.presentation.vms.VMGeneral;
@@ -65,7 +65,7 @@ public class CitiesFragment extends MyRecyclerFragment<City, VMGeneral> {
             if (lista.get(i).getId().equals(data.getId())){
                 MyActivity.log("Followed item found!");
                 lista.get(i).setFollowed(data.getFollowed());
-                MyActivity.log("Refresh adapter at "+i+" position with marked "+data.getFollowed());
+                MyActivity.log("Refresh adapter at "+i+" position with marked "+ data.getFollowed());
                 //adapter.notifyItemChanged(i);
                 adapter.notifyDataSetChanged();
                 break;

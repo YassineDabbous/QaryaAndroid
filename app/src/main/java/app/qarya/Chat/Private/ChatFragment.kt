@@ -301,15 +301,15 @@ class ChatFragment : MyRecyclerFragment<Message?, VMChat>() {
     //permission is automatically granted on sdk<23 upon installation
     val isStoragePermissionGranted: Boolean
         get() = if (Build.VERSION.SDK_INT >= 23) {
-            if (activity!!.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            if (requireActivity().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                 MyActivity.log("Permission is granted")
                 true
             } else {
                 MyActivity.log("Permission is revoked")
-                if (ActivityCompat.shouldShowRequestPermissionRationale(activity!!, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                     PermissionsHelper.showExplanation(activity,"Permission Needed", "Rationale", Manifest.permission.WRITE_EXTERNAL_STORAGE, 1)
                 } else {
-                    ActivityCompat.requestPermissions(activity!!, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
+                    ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
                 }
                 false
             }
@@ -333,7 +333,7 @@ class ChatFragment : MyRecyclerFragment<Message?, VMChat>() {
             val picker = ImagePicker.create(this)
                     .returnMode(ReturnMode.ALL) // set whether pick and / or camera action should return immediate result or not.
                     .folderMode(false) // folder mode (false by default)
-                    .toolbarFolderTitle(context!!.getString(R.string.app_name)) // folder selection title
+                    .toolbarFolderTitle(requireContext().getString(R.string.app_name)) // folder selection title
                     .toolbarImageTitle("Tap to select") // image selection title
                     .toolbarArrowColor(Color.BLACK) // Toolbar 'up' arrow color
                     .single() // single mode
@@ -395,13 +395,13 @@ class ChatFragment : MyRecyclerFragment<Message?, VMChat>() {
             val aa: AlertUtils.Alert = object : AlertUtils.Alert() {
                 override fun onAccept(o: Any) {
                     if (data.code == Message.TYPE_BLOCK) {
-                        activity!!.onBackPressed()
+                        requireActivity().onBackPressed()
                     }
                 }
             }
             aa.setIsInfo(true)
             aa.message = data.message
-            alert(context!!, aa)
+            alert(requireContext(), aa)
         }
     }
 
@@ -513,7 +513,7 @@ class ChatFragment : MyRecyclerFragment<Message?, VMChat>() {
     internal var actions = R.array.conv_options
     override fun showOptions() {
         //super.showOptions()
-        AlertUtils.popupList(activity!!, actions, object : AlertUtils.Alert() {
+        AlertUtils.popupList(requireActivity(), actions, object : AlertUtils.Alert() {
             override fun onAccept(o: Any) {
                 val which = o as Int
                 when (which) {
@@ -534,7 +534,7 @@ class ChatFragment : MyRecyclerFragment<Message?, VMChat>() {
                 activity()?.vm?.report(o.toString())
             }
         }
-        action.message = context!!.getText(R.string.report).toString()
-        report(context!!, action)
+        action.message = requireContext().getText(R.string.report).toString()
+        report(requireContext(), action)
     }
 }

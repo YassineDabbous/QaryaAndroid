@@ -111,7 +111,7 @@ class ProductFragment : MyFragment<VMProduct>() {
 
 
         TextUtils.htmlToView(categoryTV, "<b>${getText(R.string.category)}: </b> ${mViewModel.item?.categoryName}")
-        TextUtils.htmlToView(addressTV, "<b>${getText(R.string.address)}: </b> ${mViewModel.item?.address}")
+        TextUtils.htmlToView(addressTV, "<b>${getText(R.string.address)}: </b> ${mViewModel.item?.priceType}")
         TextUtils.htmlToView(shippingTV, "<b>${getText(R.string.shipping)}: </b> ${mViewModel.item?.shipping}")
         TextUtils.htmlToView(descriptionTV, "<b>${getText(R.string.description)}: </b> ${mViewModel.item?.description}")
         //TextUtils.htmlToView(descriptionTV, mViewModel.item?.description ?: "")
@@ -135,7 +135,7 @@ class ProductFragment : MyFragment<VMProduct>() {
         mViewModel.item?.mapLink?.let {
             map.setOnClickListener{
                 //WebUtils.openLink(context, mViewModel.item?.mapLink)
-                WebUtils.viewOnMap(context!!, mViewModel.item?.latitude!!, mViewModel.item?.longitude!!)
+                WebUtils.viewOnMap(requireContext(), mViewModel.item?.latitude!!, mViewModel.item?.longitude!!)
             }
         }
         mViewModel.item?.phone?.let {
@@ -146,14 +146,14 @@ class ProductFragment : MyFragment<VMProduct>() {
         }
 
         chatBtn.setOnClickListener{
-            AppHelpers.private(context!!, mViewModel.item!!.getUid())
+            AppHelpers.private(requireContext(), mViewModel.item!!.getUid())
         }
         likeBtn.setOnClickListener{
             mViewModel.like()
         }
 
 
-        toolbar_right_2.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.share_outline))
+        toolbar_right_2.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.share_outline))
         toolbar_right_2.visibility = View.VISIBLE
         toolbar_right_2.setOnClickListener{
             (activity as MyActivity).share(mViewModel.item)
@@ -180,7 +180,7 @@ class ProductFragment : MyFragment<VMProduct>() {
         }
     }
     fun handleDelete(response: GeneralResponse) {
-        activity!!.onBackPressed()
+        requireActivity().onBackPressed()
     }
     fun handleReport(response: Any) {}
 
@@ -195,9 +195,9 @@ class ProductFragment : MyFragment<VMProduct>() {
         if (me != null && me.id != null && me.id == mViewModel.item?.getUid())
             list.add(getText(R.string.delete).toString())
 
-        val builderSingle = MaterialAlertDialogBuilder(activity!!)
+        val builderSingle = MaterialAlertDialogBuilder(requireActivity())
 
-        val arrayAdapter = ArrayAdapter<String>(activity!!, android.R.layout.select_dialog_item, list.toTypedArray<String>())
+        val arrayAdapter = ArrayAdapter<String>(requireActivity(), android.R.layout.select_dialog_item, list.toTypedArray<String>())
 
         builderSingle.setAdapter(arrayAdapter) { dialog, which ->
             when (which) {
@@ -215,8 +215,8 @@ class ProductFragment : MyFragment<VMProduct>() {
                 mViewModel.delete()
             }
         }
-        action.message = context!!.getText(R.string.delete).toString()
-        AlertUtils.alert(context!!, action)
+        action.message = requireContext().getText(R.string.delete).toString()
+        AlertUtils.alert(requireContext(), action)
     }
 
     fun reportAlert() {
@@ -225,8 +225,8 @@ class ProductFragment : MyFragment<VMProduct>() {
                 mViewModel.report(o.toString())
             }
         }
-        action.message = context!!.getText(R.string.report).toString()
-        AlertUtils.report(context!!, action)
+        action.message = requireContext().getText(R.string.report).toString()
+        AlertUtils.report(requireContext(), action)
     }
 
 

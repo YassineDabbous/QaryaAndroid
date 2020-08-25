@@ -93,7 +93,7 @@ class UCPosts : UseCase() {
                 super.onSuccess(response)
                 //MyActivity.log("Ideas count " + response.data?.data?.size)
                 if (response.data!=null)
-                    closure.onSuccess(ModelHolder.pagination(response.data))
+                    closure.onSuccess(ModelHolder.paginate(response.data, ModelType.POST))
             }
 
             override fun onError(failure: Failure?) {
@@ -117,7 +117,7 @@ class UCPosts : UseCase() {
                 super.onSuccess(response)
                 //MyActivity.log("Ideas count " + response.data?.data?.size)
                 if (response.data!=null)
-                    closure.onSuccess(ModelHolder.pagination(response.data))
+                    closure.onSuccess(ModelHolder.paginate(response.data, ModelType.POST))
             }
 
             override fun onError(failure: Failure?) {

@@ -14,7 +14,7 @@ import tn.core.domain.base.Closure
 class UCAuth : UseCase() {
 
     fun broadcasts(closure: Closure<List<Broadcast>>){
-        getApi().broadcasts().enqueue(object: MyCallBack<BaseResponse<List<Broadcast>>>(){
+        getApi().subscriptions().enqueue(object: MyCallBack<BaseResponse<List<Broadcast>>>(){
             override fun onSuccess(response: BaseResponse<List<Broadcast>>?) {
                 super.onSuccess(response)
                 closure.onSuccess(response?.data)

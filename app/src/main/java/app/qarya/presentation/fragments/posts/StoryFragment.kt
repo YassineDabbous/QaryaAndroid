@@ -102,7 +102,7 @@ class StoryFragment : MyDialogFragment<VMPost>() {
         }
     }
     fun handleDelete(response: GeneralResponse) {
-        activity!!.onBackPressed()
+        requireActivity().onBackPressed()
     }
     fun handleReport(response: Any) {
         Toast.makeText(context, "Done", Toast.LENGTH_LONG).show()
@@ -117,9 +117,9 @@ class StoryFragment : MyDialogFragment<VMPost>() {
         if (me != null && me.id != null && me.id == mViewModel.item?.getUid())
             list.add(getText(R.string.delete).toString())
 
-        val builderSingle = MaterialAlertDialogBuilder(activity!!)
+        val builderSingle = MaterialAlertDialogBuilder(requireActivity())
 
-        val arrayAdapter = ArrayAdapter<String>(activity!!, android.R.layout.select_dialog_item, list.toTypedArray<String>())
+        val arrayAdapter = ArrayAdapter<String>(requireActivity(), android.R.layout.select_dialog_item, list.toTypedArray<String>())
 
         builderSingle.setAdapter(arrayAdapter) { dialog, which ->
             when (which) {
@@ -141,8 +141,8 @@ class StoryFragment : MyDialogFragment<VMPost>() {
                 mViewModel.delete(mViewModel.item)
             }
         }
-        action.message = context!!.getText(R.string.delete).toString()
-        AlertUtils.alert(context!!, action)
+        action.message = requireContext().getText(R.string.delete).toString()
+        AlertUtils.alert(requireContext(), action)
     }
 
     fun reportAlert() {
@@ -151,8 +151,8 @@ class StoryFragment : MyDialogFragment<VMPost>() {
                 mViewModel.report(mViewModel.item, o.toString())
             }
         }
-        action.message = context!!.getText(R.string.report).toString()
-        AlertUtils.report(context!!, action)
+        action.message = requireContext().getText(R.string.report).toString()
+        AlertUtils.report(requireContext(), action)
     }
 
 }

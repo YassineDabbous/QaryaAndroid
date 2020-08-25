@@ -2,7 +2,7 @@ package app.qarya.domain.usecase
 
 import com.onesignal.OneSignal
 import app.qarya.model.models.requests.FollowRequest
-import app.qarya.model.models.responses.FollowResponse
+import app.qarya.model.models.requests.FollowResponse;
 import tn.core.domain.Failure
 import tn.core.model.responses.BaseResponse
 import tn.core.model.net.custom.MyCallBack
@@ -16,11 +16,11 @@ class UCFollowing : UseCase() {
         api.follow(request).enqueue(object : MyCallBack<BaseResponse<FollowResponse>>() {
             override fun onSuccess(response: BaseResponse<FollowResponse>) {
                 super.onSuccess(response)
-                response.data.id = request.id
+                //response.data.id = request.id
                 if(response.data.followed)
-                    OneSignal.sendTag(request.key, request.value)
+                    OneSignal.sendTag(response.data.tagKey, response.data.tagKey)
                 else
-                    OneSignal.deleteTag(request.key)
+                    OneSignal.deleteTag(response.data.tagKey)
                 closure.onSuccess(response.data)
             }
 

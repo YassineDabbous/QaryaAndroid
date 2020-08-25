@@ -97,9 +97,9 @@ public class Post extends Commun{
 
 
 
-    @SerializedName("address")
+    @SerializedName("price_type")
     @Expose
-    private String address;
+    private String priceType;
     @SerializedName("latitude")
     @Expose
     private String latitude;
@@ -127,12 +127,12 @@ public class Post extends Commun{
     private String shipping;
 
 
-    public String getAddress() {
-        return address;
+    public String getPriceType() {
+        return priceType;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPriceType(String priceType) {
+        this.priceType = priceType;
     }
 
     public Integer getCommentsCount() {

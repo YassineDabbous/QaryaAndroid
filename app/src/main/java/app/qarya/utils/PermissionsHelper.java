@@ -33,7 +33,7 @@ public class PermissionsHelper {
         val builder = AlertDialog.Builder(activity)
         builder.setTitle(title)
                 .setMessage(message)
-                .setPositiveButton(android.R.string.ok) { dialog, id -> ActivityCompat.requestPermissions(activity!!, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1) }
+                .setPositiveButton(android.R.string.ok) { dialog, id -> ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1) }
         MyActivity.log("show AlertDialog")
         var a:AlertDialog = builder.create();
         a.show()
@@ -45,7 +45,7 @@ public class PermissionsHelper {
         val builder = AlertDialog.Builder(activity)
         builder.setTitle(title)
                 .setMessage(message)
-                .setPositiveButton(android.R.string.ok) { dialog, id -> ActivityCompat.requestPermissions(activity!!, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1) }
+                .setPositiveButton(android.R.string.ok) { dialog, id -> ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1) }
         MyActivity.log("show AlertDialog")
         builder.create().show()
     }

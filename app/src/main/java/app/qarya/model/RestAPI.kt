@@ -102,8 +102,19 @@ interface RestAPI {
     fun alerts(): Call<BaseResponse<List<Alert>>>
 
 
-    @GET("broadcasts")
-    fun broadcasts(): Call<BaseResponse<List<Broadcast>>>
+
+
+    @POST("subscriptions")
+    fun follow(@Body follow:FollowRequest): Call<BaseResponse<FollowResponse>>
+
+    @GET("subscriptions")
+    fun subscriptions(): Call<BaseResponse<List<Broadcast>>>
+    @GET("subscriptions/categories")
+    fun followedCategories(@Query("page") page: Int=1): Call<BaseResponse<PagingResponse<Category>>>
+    @GET("subscriptions/posts")
+    fun followedUsers(@Query("page") page: Int=1): Call<BaseResponse<PagingResponse<User>>>
+    @GET("subscriptions/stores")
+    fun followedStores(@Query("page") page: Int=1): Call<BaseResponse<PagingResponse<User>>>
 
 
 
@@ -144,8 +155,6 @@ interface RestAPI {
     @GET("categories/{id}/children")
     fun getCategories(@Path("id") id: Int): Call<BaseResponse<List<Category>>>
 
-    @POST("broadcasts")
-    fun follow(@Body follow:FollowRequest): Call<BaseResponse<FollowResponse>>
 
 
     @GET("categories/users")

@@ -102,7 +102,7 @@ open class BasePostFragment : MyRecyclerFragment<Comment, VMPost?>() {
         val me = YDUserManager.auth()
         if (me != null && me.id != null && me.id == post!!.getUid()) list.add(getText(R.string.delete).toString())
         val builderSingle = MaterialAlertDialogBuilder(activity)
-        val arrayAdapter = ArrayAdapter(activity!!, android.R.layout.select_dialog_item, list.toTypedArray())
+        val arrayAdapter = ArrayAdapter(requireActivity(), android.R.layout.select_dialog_item, list.toTypedArray())
         builderSingle.setAdapter(arrayAdapter) { dialog: DialogInterface, which: Int ->
             when (which) {
                 0 -> reportAlert(post)
@@ -119,7 +119,7 @@ open class BasePostFragment : MyRecyclerFragment<Comment, VMPost?>() {
         val me = YDUserManager.auth()
         if (me != null && me.id != null && me.id == model.getUid()) list.add(getText(R.string.delete).toString())
         val builderSingle = MaterialAlertDialogBuilder(activity)
-        val arrayAdapter = ArrayAdapter(activity!!, android.R.layout.select_dialog_item, list.toTypedArray())
+        val arrayAdapter = ArrayAdapter(requireActivity(), android.R.layout.select_dialog_item, list.toTypedArray())
 
         /*builderSingle.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
@@ -138,7 +138,7 @@ open class BasePostFragment : MyRecyclerFragment<Comment, VMPost?>() {
 
 
     fun handleDeletePost(response: GeneralResponse?) {
-        activity!!.onBackPressed()
+        requireActivity().onBackPressed()
     }
 
     fun handleDeleteComment(response: GeneralResponse) {
@@ -184,8 +184,8 @@ open class BasePostFragment : MyRecyclerFragment<Comment, VMPost?>() {
                 mViewModel!!.delete(comment)
             }
         }
-        action.message = context!!.getText(R.string.delete).toString()
-        alert(context!!, action)
+        action.message = requireContext().getText(R.string.delete).toString()
+        alert(requireContext(), action)
     }
 
     fun reportAlert(comment: Commun?) {
@@ -194,8 +194,8 @@ open class BasePostFragment : MyRecyclerFragment<Comment, VMPost?>() {
                 mViewModel!!.report(comment, o.toString())
             }
         }
-        action.message = context!!.getText(R.string.report).toString()
-        report(context!!, action)
+        action.message = requireContext().getText(R.string.report).toString()
+        report(requireContext(), action)
     }
 
     override fun onResume() {

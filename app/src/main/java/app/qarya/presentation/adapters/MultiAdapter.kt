@@ -45,6 +45,10 @@ class MultiAdapter(private var items : MutableList<ModelHolder>, private val lis
                 val v = LayoutInflater.from(parent.context).inflate(ItemVH(View(parent.context)).layoutId,parent,false)
                 return ItemVH(v)
             }
+            ModelType.CATEGORY -> {
+                val v = LayoutInflater.from(parent.context).inflate(CategoryVH(View(parent.context)).layoutId,parent,false)
+                return CategoryVH(v)
+            }
             ModelType.POST -> {
                 val v = LayoutInflater.from(parent.context).inflate(VHPost(View(parent.context)).layoutId,parent,false)
                 return VHPost(v)
@@ -88,6 +92,7 @@ class MultiAdapter(private var items : MutableList<ModelHolder>, private val lis
                 else if (item.TYPE == ModelType.NOTE)       (holder as VHNote).bind(item.model as? Post, (listener as OnClickItemListener<Post?>))
                 else if (item.TYPE == ModelType.PRODUCT)       (holder as ProductVH).bind(item.model as? Post, (listener as OnClickItemListener<Post?>))
                 else if (item.TYPE == ModelType.USER)       (holder as UsersVH).bind(item.model as User, (listener as OnClickItemListener<User>))
+                else if (item.TYPE == ModelType.CATEGORY)       (holder as CategoryVH).bind(item.model as Category, (listener as OnClickItemListener<Category>))
                 else if (item.TYPE == ModelType.HEADER)     (holder as HeaderVH).bind(item.model as String, (listener as OnClickItemListener<String>))
                 else if (item.TYPE == ModelType.SHARE_PRIVATE)       (holder as SharerVH).bind(item.model as Commun, (listener as OnClickItemListener<Commun>))
             }

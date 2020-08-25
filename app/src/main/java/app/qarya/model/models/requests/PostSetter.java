@@ -19,28 +19,17 @@ public class PostSetter {
         this.files = files;
     }
 
-    public PostSetter(Integer categoryId, String title, String description, String address, String longitude, String latitude, String phone, String price, Integer shipping, List<Integer> files) {
+    public PostSetter(Integer categoryId, String title, String description, String longitude, String latitude, String phone, String price, Integer shipping, Integer priceType, List<Integer> files) {
         this.categoryId = categoryId;
         this.title = title;
         this.description = description;
-        this.address = address;
         this.longitude = longitude;
         this.latitude = latitude;
         this.phone = phone;
         this.price = price;
         this.shipping = shipping;
+        this.priceType = priceType;
         this.files = files;
-    }
-    public PostSetter(Integer categoryId, String title, String description, String address, String longitude, String latitude, String phone, String price, Integer shipping) {
-        this.categoryId = categoryId;
-        this.title = title;
-        this.description = description;
-        this.address = address;
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.shipping = shipping;
-        this.phone = phone;
-        this.price = price;
     }
 
 
@@ -66,6 +55,10 @@ public class PostSetter {
     @SerializedName("shipping")
     @Expose
     private Integer shipping;
+
+    @SerializedName("price_type")
+    @Expose
+    private Integer priceType;
 
     @SerializedName("phone")
     @Expose

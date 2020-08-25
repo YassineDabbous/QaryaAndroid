@@ -157,12 +157,15 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
 
 
         productsBtn.setOnClickListener {
+            colorize(R.id.productsBtn)
             setFragment(HighlightsFragment.newInstance(ModelType.PRODUCT))
         }
         storesBtn.setOnClickListener {
+            colorize(R.id.storesBtn)
             setFragment(HighlightsFragment.newInstance(ModelType.STORE))
         }
         usersBtn.setOnClickListener {
+            colorize(R.id.usersBtn)
             setFragment(HighlightsFragment.newInstance(ModelType.USER))
         }
 
@@ -185,6 +188,44 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
 
         //showPrayerCase()
         showCase()
+    }
+
+    fun colorize(id:Int){
+        if(id == R.id.usersBtn)
+            ImageViewCompat.setImageTintList(usersBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.yellow)));
+        else
+            ImageViewCompat.setImageTintList(usersBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
+
+
+        if(id == R.id.storesBtn)
+            ImageViewCompat.setImageTintList(storesBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.yellow)));
+        else
+            ImageViewCompat.setImageTintList(storesBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
+
+
+        if(id == R.id.storesBtn)
+            ImageViewCompat.setImageTintList(storesBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.yellow)));
+        else
+            ImageViewCompat.setImageTintList(storesBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
+
+
+        if(id == R.id.homeBtn)
+            ImageViewCompat.setImageTintList(homeBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.yellow)));
+        else
+            ImageViewCompat.setImageTintList(homeBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
+
+
+        if(id == R.id.reqsBtn)
+            ImageViewCompat.setImageTintList(reqsBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.yellow)));
+        else
+            ImageViewCompat.setImageTintList(reqsBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
+
+
+        if(id == R.id.notifsBtn)
+            ImageViewCompat.setImageTintList(notifsBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.yellow)));
+        else
+            ImageViewCompat.setImageTintList(notifsBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
+
     }
 
 
@@ -214,7 +255,7 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
                 MyActivity.log("prayer showcase tapped")
                 Showcase.show(this, chat, "الدردشة", "مكان للنقاشاء حول جديد الأخبار", OnClickItemListener<String> {
                     MyActivity.log("chat showcase tapped")
-                    Showcase.show(this, notifs, "التنبيهات", "تصلك هنا كل التعليقات و الإعجابات بما تنشره", OnClickItemListener<String> {
+                    Showcase.show(this, notifsBtn, "التنبيهات", "تصلك هنا كل التعليقات و الإعجابات بما تنشره", OnClickItemListener<String> {
                         MyActivity.log("notifs showcase tapped")
                         /*Showcase.show(this, prayerBtn, "مواقيت الصلاة", "مواقيت الصلاوات الخمس، المواقيت غير مضبوطة حاليا نرجوا ان تأخذ هذا في عين الإعتبار", OnClickItemListener<String> {
                             MyActivity.log("prayer showcase tapped")
@@ -288,12 +329,14 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
 
 
     fun onHomeBtnClicked(view: View) {
+        colorize(R.id.homeBtn)
         if(currentFragment is HomeFragment)
             currentFragment.swipeRefresh()
         else
             setFragment(HomeFragment.newInstance())
     }
     fun onNotifClicked(v:View) {
+        colorize(R.id.notifsBtn)
         notifsCountTV.visibility = View.GONE
         if(currentFragment is NotificationsFragment)
             currentFragment.swipeRefresh()
@@ -301,6 +344,7 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
             setFragment(NotificationsFragment.newInstance())
     }
     fun onReqsClicked(view: View) {
+        colorize(R.id.reqsBtn)
         reqsCountTV.visibility = View.GONE
         if(currentFragment is RelationsFragment)
             currentFragment.swipeRefresh()

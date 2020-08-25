@@ -142,12 +142,12 @@ class CreatorFragment : MyDialogFragment<VMPost>(), View.OnClickListener, Google
         if(isProduct){
             categoryLayout.visibility = View.VISIBLE
             titleLayout.visibility = View.VISIBLE
-            addressLayout.visibility = View.VISIBLE
             productDetailsLayout.visibility = View.VISIBLE
-
+            descriptionLayout.visibility = View.VISIBLE
             titleLayout.hint = getText(R.string.product_name)
+            descriptionLayout.hint  = getText(R.string.description)
 
-            //shippingSpinner!!.adapter = ArrayAdapter(context!!, R.layout.spinner_dropdown_item, R.string.chat)
+            //shippingSpinner!!.adapter = ArrayAdapter(requireContext(), R.layout.spinner_dropdown_item, R.string.chat)
 
             mViewModel.categoriesOfProducts()
             checkAndAlertGPS()
@@ -186,7 +186,7 @@ class CreatorFragment : MyDialogFragment<VMPost>(), View.OnClickListener, Google
             }
         }
         // we build google api client
-        googleApiClient = GoogleApiClient.Builder(activity!!).addApi(LocationServices.API).addConnectionCallbacks(this).addOnConnectionFailedListener(this).build()
+        googleApiClient = GoogleApiClient.Builder(requireActivity()).addApi(LocationServices.API).addConnectionCallbacks(this).addOnConnectionFailedListener(this).build()
     }
 
 
@@ -247,7 +247,6 @@ class CreatorFragment : MyDialogFragment<VMPost>(), View.OnClickListener, Google
     fun save(){
         val t = titleEditText!!.text.toString()
         val d = descriptionEditText!!.text.toString()
-        val a = addressEditText.text?.toString() ?: ""
         val phone = phoneTV.text?.toString()  ?: ""
         val price = priceTV.text?.toString()  ?: ""
 
@@ -255,10 +254,11 @@ class CreatorFragment : MyDialogFragment<VMPost>(), View.OnClickListener, Google
         if (categorySpinner!!.selectedItemPosition >= 0 && categorySpinner!!.selectedItemPosition < categories!!.size)
             c = categories!![categorySpinner!!.selectedItemPosition].id
         val shipping = shippingSpinner.selectedItemPosition
+        val priceType = priceTypeSpinner.selectedItemPosition
         if (filesIDS.size > 0)
-            mViewModel!!.push(getType(), PostSetter(c, t, d, a, longitude, latitude, phone, price, shipping, filesIDS))
+            mViewModel!!.push(getType(), PostSetter(c, t, d, longitude, latitude, phone, price, shipping, priceType, filesIDS))
         else
-            mViewModel!!.push(getType(), PostSetter(c, t, d, a, longitude, latitude, phone, price, shipping))
+            mViewModel!!.push(getType(), PostSetter(c, t, d, longitude, latitude, phone, price, shipping, priceType, null))
     }
 
 
@@ -273,10 +273,6 @@ class CreatorFragment : MyDialogFragment<VMPost>(), View.OnClickListener, Google
         }
         if ((isPost || isNote) && descriptionEditText!!.text.toString().isEmpty()) {
             Toast.makeText(context, "description required", Toast.LENGTH_SHORT).show()
-            return false
-        }
-        if (isProduct && addressEditText!!.text.toString().isEmpty()) {
-            Toast.makeText(context, "address required", Toast.LENGTH_SHORT).show()
             return false
         }
         if (isStory && listImages.isEmpty()) {
@@ -316,7 +312,7 @@ class CreatorFragment : MyDialogFragment<VMPost>(), View.OnClickListener, Google
         if (data != null) for (category in data) {
             list.add(category.name)
         }
-        categorySpinner!!.adapter = ArrayAdapter(context!!, R.layout.spinner_dropdown_item, list)
+        categorySpinner!!.adapter = ArrayAdapter(requireContext(), R.layout.spinner_dropdown_item, list)
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -334,15 +330,15 @@ class CreatorFragment : MyDialogFragment<VMPost>(), View.OnClickListener, Google
     //permission is automatically granted on sdk<23 upon installation
     fun isStoragePermissionGranted(): Boolean {
         if (Build.VERSION.SDK_INT >= 23) {
-            if (activity!!.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            if (requireActivity().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                 MyActivity.log("Permission is granted")
                 return true
             } else {
                 MyActivity.log("Permission is revoked")
-                if (ActivityCompat.shouldShowRequestPermissionRationale(activity!!, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                     PermissionsHelper.showExplanation(activity,"Permission Needed", "Rationale", Manifest.permission.WRITE_EXTERNAL_STORAGE, IMAGE_PERMISSIONS_RESULT)
                 } else {
-                    ActivityCompat.requestPermissions(activity!!, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), IMAGE_PERMISSIONS_RESULT)
+                    ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), IMAGE_PERMISSIONS_RESULT)
                 }
                 return false
             }
@@ -421,7 +417,7 @@ class CreatorFragment : MyDialogFragment<VMPost>(), View.OnClickListener, Google
 
     fun hasPermission(permission: String): Boolean {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ActivityCompat.checkSelfPermission(activity!!, permission) == PackageManager.PERMISSION_GRANTED
+            ActivityCompat.checkSelfPermission(requireActivity(), permission) == PackageManager.PERMISSION_GRANTED
         } else true
 
     }
@@ -445,7 +441,7 @@ class CreatorFragment : MyDialogFragment<VMPost>(), View.OnClickListener, Google
     }
 
     fun checkAndAlertGPS(): Boolean {
-        val lm = activity!!.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        val lm = requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
         var gps_enabled = false
         var network_enabled = false
 
@@ -463,7 +459,7 @@ class CreatorFragment : MyDialogFragment<VMPost>(), View.OnClickListener, Google
             // notify user
             AlertDialog.Builder(activity)
                     .setMessage(R.string.msg_gps_network_not_enabled)
-                    .setPositiveButton(R.string.open_location_settings) { paramDialogInterface, paramInt -> activity!!.startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)) }
+                    .setPositiveButton(R.string.open_location_settings) { paramDialogInterface, paramInt -> requireActivity().startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)) }
                     .setNegativeButton(R.string.Cancel, null)
                     .show()
         }
@@ -487,8 +483,8 @@ class CreatorFragment : MyDialogFragment<VMPost>(), View.OnClickListener, Google
 
 
     override fun onConnected(bundle: Bundle?) {
-        if (ActivityCompat.checkSelfPermission(activity!!,
-                        Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(activity!!,
+        if (ActivityCompat.checkSelfPermission(requireActivity(),
+                        Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(requireActivity(),
                         Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return
         }
@@ -512,8 +508,8 @@ class CreatorFragment : MyDialogFragment<VMPost>(), View.OnClickListener, Google
         locationRequest!!.interval = UPDATE_INTERVAL
         locationRequest!!.fastestInterval = FASTEST_INTERVAL
 
-        if (ActivityCompat.checkSelfPermission(activity!!,
-                        Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(activity!!,
+        if (ActivityCompat.checkSelfPermission(requireActivity(),
+                        Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(requireActivity(),
                         Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(activity, "You need to enable permissions to display location !", Toast.LENGTH_SHORT).show()
         }

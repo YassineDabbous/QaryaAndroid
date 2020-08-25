@@ -48,10 +48,10 @@ class HomeFragment : MyRecyclerFragment<ModelHolder, HomeViewModel>() {
         fab_add_note.setOnClickListener { (activity as MyActivity).setFragment(CreatorFragment.newInstance(ModelType.NOTE)) }
         fab_add_store.setOnClickListener { (activity as MyActivity).setFragment(CreatorFragment.newInstance(ModelType.PRODUCT)) }
 
-        fab_add_story.setImageDrawable( ContextCompat.getDrawable(activity!!, R.drawable.flash_outline) )
-        fab_add_note.setImageDrawable( ContextCompat.getDrawable(activity!!, R.drawable.file_edit_outline) )
-        fab_add_post.setImageDrawable( ContextCompat.getDrawable(activity!!, R.drawable.square_edit_outline) )
-        fab_add_store.setImageDrawable( ContextCompat.getDrawable(activity!!, R.drawable.store) )
+        fab_add_story.setImageDrawable( ContextCompat.getDrawable(requireActivity(), R.drawable.flash_outline) )
+        fab_add_note.setImageDrawable( ContextCompat.getDrawable(requireActivity(), R.drawable.file_edit_outline) )
+        fab_add_post.setImageDrawable( ContextCompat.getDrawable(requireActivity(), R.drawable.square_edit_outline) )
+        fab_add_store.setImageDrawable( ContextCompat.getDrawable(requireActivity(), R.drawable.store) )
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginHorizontal="8dp"
-                android:background="@drawable/rounded_shadow">
+                android:background="@drawable/rounded_search_area">
                 <TextView
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
@@ -176,7 +176,7 @@
 
                 <ImageButton
                     android:layout_centerHorizontal="true"
-                    android:id="@+id/notifs"
+                    android:id="@+id/notifsBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
@@ -189,8 +189,8 @@
                     android:id="@+id/notifsCountTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignEnd="@+id/notifs"
-                    android:layout_alignRight="@+id/notifs"
+                    android:layout_alignEnd="@+id/notifsBtn"
+                    android:layout_alignRight="@+id/notifsBtn"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="4dp"
                     android:background="@drawable/headview_counter"

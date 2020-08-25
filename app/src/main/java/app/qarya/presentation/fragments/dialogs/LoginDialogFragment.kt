@@ -210,7 +210,7 @@ class LoginDialogFragment : BaseDialogFragment<VMAuth>() {
             Timber.e("Sets autocompleteEmails: %s", accounts[i].name)
         }
 
-        val emails = ArrayAdapter(activity!!.baseContext, android.R.layout.simple_dropdown_item_1line, addresses)
+        val emails = ArrayAdapter(requireActivity().baseContext, android.R.layout.simple_dropdown_item_1line, addresses)
         login_registration_email_text_auto.setAdapter<ArrayAdapter<String>>(emails as ArrayAdapter<String>)*/
 
         acceptText.setOnClickListener{
@@ -357,7 +357,7 @@ class LoginDialogFragment : BaseDialogFragment<VMAuth>() {
 
     private fun hideSoftKeyboard() {
         if (activity != null && view != null) {
-            val imm = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view!!.getWindowToken(), 0)
         }
     }

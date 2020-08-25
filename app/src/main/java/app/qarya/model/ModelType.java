@@ -6,6 +6,7 @@ public final class ModelType{
     @Contract(pure = true)
     private ModelType(){}
 
+
     public static final int SHARE_PRIVATE = -4;
     public static final int GENERAL = -3;
     public static final int ADS = -2;
@@ -28,6 +29,8 @@ public final class ModelType{
 
     public static final int FORK = 40;
     public static final int RELATION = 41;
+    public static final int CATEGORY = 42;
+    public static final int CITY = 43;
 
 
 }

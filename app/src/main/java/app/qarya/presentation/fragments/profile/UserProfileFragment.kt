@@ -46,7 +46,7 @@ class UserProfileFragment : MyFragment<VMUser>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //mViewModel = ViewModelProvider(this, SavedStateViewModelFactory(activity!!.application, this)).get(SavedStateViewModel::class.java)
+        //mViewModel = ViewModelProvider(this, SavedStateViewModelFactory(requireActivity().application, this)).get(SavedStateViewModel::class.java)
         mViewModel = ViewModelProvider(this).get(VMUser::class.java)
         mViewModel.callErrors.observe(this, Observer<List<String>> { this.onError(it) })
         mViewModel.loadStatus.observe(this, Observer { this.onStatusChanged(it) })
@@ -113,7 +113,7 @@ class UserProfileFragment : MyFragment<VMUser>() {
         resetRelation()
         //refresh ?
         if(data.relation==3){
-            activity!!.onBackPressed()
+            requireActivity().onBackPressed()
         }
     }
 
@@ -135,7 +135,7 @@ class UserProfileFragment : MyFragment<VMUser>() {
             photoView.setOnClickListener { (activity as MyActivity).setFragment(PhotoZoomFragment.newInstance(mViewModel.user.photo)) }
 
             messageBtn.setOnClickListener {
-                AppHelpers.private(context!!, mViewModel.user.id)
+                AppHelpers.private(requireContext(), mViewModel.user.id)
             }
             followBtn.setOnClickListener {
                 popupList()
@@ -162,14 +162,14 @@ class UserProfileFragment : MyFragment<VMUser>() {
         } else if (mViewModel.user.friendship === 2) {
             relations = R.array.relationsFriends
         } else if (mViewModel.user.friendship === 3) {
-            activity!!.onBackPressed()
+            requireActivity().onBackPressed()
             return
         }
     }
     
 
     internal fun popupList() {
-        val b = AlertDialog.Builder(activity!!)
+        val b = AlertDialog.Builder(requireActivity())
         b.setItems(relations) { dialog, which ->
             dialog.dismiss()
             if (getResources().getStringArray(relations).size == 2)//if (relations.size == 2)

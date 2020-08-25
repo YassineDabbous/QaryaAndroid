@@ -15,6 +15,7 @@
     <string name="slogon">قرية, مكان للجميع</string> <!-- مهما نسيت الوطن و تغربت Never forget where you come from!-->
     <string name="prayer_timing">مواقيت الصلاة</string>
     <string name="category">القسم</string>
+    <string name="categories">الأقسام</string>
     <string name="city">المدينة</string>
     <string name="workTime">وقت العمل</string>
     <string name="address">العنوان البريدي</string>
@@ -86,6 +87,11 @@
     </string-array>
 
 
+    <string-array name="price_type">
+        <item>قابل للنقاش</item>
+        <item>ثابت</item>
+        <item>مزاد</item>
+    </string-array>
 
     <string-array name="shipping_ability">
         <item>حسب الإتفاق</item>
@@ -160,6 +166,7 @@
     <string name="posts">منشورات</string>
     <string name="products">منتوجات</string>
     <string name="users">مستخدمون</string>
+    <string name="stores">محلات</string>
 
     <string name="chat">نقاشات</string>
 

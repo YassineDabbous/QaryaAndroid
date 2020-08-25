@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import app.qarya.R;
 import app.qarya.model.ModelType;
 import app.qarya.model.models.Category;
-import app.qarya.model.models.responses.FollowResponse;
+import app.qarya.model.models.requests.FollowResponse;
 import app.qarya.presentation.adapters.CategoryAdapter;
 import app.qarya.presentation.base.MyActivity;
 import app.qarya.presentation.base.MyRecyclerFragment;
@@ -55,10 +55,7 @@ public class CategoriesFragment extends MyRecyclerFragment<Category, VMGeneral> 
     public void getData() {
         super.getData();
         int GoTo = getArgs().getInt(MyConst.TYPE, 0);
-        if(GoTo == ModelType.POST)
-            mViewModel.categoriesOfPosts(0);
-        else
-            mViewModel.categoriesOfProducts(0);
+        mViewModel.categories(0, GoTo);
     }
 
     @Override
@@ -73,7 +70,7 @@ public class CategoriesFragment extends MyRecyclerFragment<Category, VMGeneral> 
             if (lista.get(i).getId().equals(data.getId())){
                 MyActivity.log("Followed item found!");
                 lista.get(i).setFollowed(data.getFollowed());
-                MyActivity.log("Refresh adapter at "+i+" position with marked "+data.getFollowed());
+                MyActivity.log("Refresh adapter at "+i+" position with marked "+ data.getFollowed());
                 //adapter.notifyItemChanged(i);
                 adapter.notifyDataSetChanged();
                 break;
