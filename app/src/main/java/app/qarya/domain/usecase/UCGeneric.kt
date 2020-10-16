@@ -30,7 +30,7 @@ class UCGeneric : UseCase() {
         val c:MyCallBack<BaseResponse<PagingResponse<T>>>  = object: MyCallBack<BaseResponse<PagingResponse<T>>>(){
             override fun onSuccess(response: BaseResponse<PagingResponse<T>>?) {
                 super.onSuccess(response)
-                closure.onSuccess(ModelHolder.pagination(response?.data))
+                closure.onSuccess(ModelHolder.paginate(response?.data, type))
             }
             override fun onError(failure: Failure?) {
                 super.onError(failure)

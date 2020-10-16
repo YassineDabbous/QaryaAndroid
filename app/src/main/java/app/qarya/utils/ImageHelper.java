@@ -51,7 +51,7 @@ public class ImageHelper {
         Picasso.get()
                 .load(NetworkUtils.correctUrl(urlStr))
                 .placeholder(R.drawable.placeholder)
-                .error(R.drawable.rounded_corners_full)
+                .error(R.drawable.rounded_red)
                 .transform(transform)
                 .into(img, new Callback() {
                     @Override
@@ -75,7 +75,7 @@ public class ImageHelper {
         Picasso.get().load(urlStr)
                 .fit()
                 .centerCrop()
-                .error(R.drawable.rounded_corners_full)
+                .error(R.drawable.rounded_red)
                 .placeholder(R.drawable.placeholder)
                 .into(img);
     }

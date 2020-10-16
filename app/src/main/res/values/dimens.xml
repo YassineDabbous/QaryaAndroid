@@ -7,6 +7,7 @@
     <dimen name="padd_10">10dp</dimen>
 
 
+    <dimen name="toolbar_padding">8dp</dimen>
 
 
     <!-- card dimens-->
@@ -39,7 +40,7 @@
 
 
     <dimen name="feed_item_padding_left_right">4dp</dimen>
-    <dimen name="feed_item_profile_info_padd">4dp</dimen>
+    <dimen name="feed_item_profile_info_padd">8dp</dimen>
     <dimen name="feed_item_profile_name">15dp</dimen>
     <dimen name="feed_item_timestamp">12dp</dimen>
     <dimen name="feed_item_status_pad_left_right">2dp</dimen>

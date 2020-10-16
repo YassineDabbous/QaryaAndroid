@@ -212,7 +212,7 @@ class HomeFragment : MyRecyclerFragment<ModelHolder, HomeViewModel>() {
                 is Fork -> lista.add(ModelHolder(item, ModelType.FORK))
                 is User -> lista.add(ModelHolder(item, ModelType.USER))
                 is Post -> {
-                    lista.add(ModelHolder(item, item.type))
+                    lista.add(ModelHolder(item, ModelType.POST))
                 }
                 else     -> lista.add(ModelHolder(item, ModelType.FORK)) //is Fork
             }

@@ -6,7 +6,9 @@ import android.text.method.LinkMovementMethod
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import app.qarya.R
+import app.qarya.model.ModelType
 import app.qarya.model.models.Post
 import app.qarya.utils.ImageHelper
 import tn.core.presentation.base.adapters.BaseViewHolder
@@ -29,6 +31,26 @@ class VHPost(val mView: View) : BaseViewHolder<Post?>(mView) {
         timestamp?.text = item?.getTimeAgo()
 
 
+        when (item?.type) {
+            ModelType.PRODUCT -> {
+                typeTV?.text = typeIV?.context?.getText(R.string.buy_and_sell)
+                typeIV?.setImageResource(R.drawable.shopping)
+                typeLayout?.background = ContextCompat.getDrawable(typeLayout?.context!!, R.drawable.rounded_red)
+                typeLayout?.visibility = View.VISIBLE
+            }
+            ModelType.LOST -> {
+                typeTV?.text = typeIV?.context?.getText(R.string.lost_and_found)
+                typeIV?.setImageResource(R.drawable.magnify)
+                typeLayout?.background = ContextCompat.getDrawable(typeLayout?.context!!, R.drawable.rounded_blue)
+                typeLayout?.visibility = View.VISIBLE
+            }
+            ModelType.NOTE -> {
+                typeTV?.text = typeIV?.context?.getText(R.string.note)
+                typeIV?.setImageResource(R.drawable.post_outline)
+                typeLayout?.background = ContextCompat.getDrawable(typeLayout?.context!!, R.drawable.rounded_green)
+                typeLayout?.visibility = View.VISIBLE
+            }
+        }
 
         //statusMsg.setText(item?.description);
         if (item?.description != null) {
@@ -115,10 +137,18 @@ class VHPost(val mView: View) : BaseViewHolder<Post?>(mView) {
     var comment: ImageView?
     var mark: ImageView?
     var share: ImageView?
+    var typeLayout:View?
+    var typeIV:ImageView?
+    var typeTV:TextView?
     init {
         message = mView.findViewById<View>(R.id.messageView) as? TextView
         uname = mView.findViewById<View>(R.id.nameTextView) as? TextView
         postBody = mView.findViewById(R.id.postBodyView) as? View
+
+        typeLayout = mView.findViewById<View>(R.id.typeLayout)
+        typeIV = mView.findViewById(R.id.typeIV)
+        typeTV = mView.findViewById(R.id.typeTV) as? TextView
+
         //title = mView.findViewById<View>(R.id.titleTextView) as? TextView
         timestamp = mView.findViewById<View>(R.id.dateTextView) as? TextView
         statusMsg = mView.findViewById<View>(R.id.contentTextView) as? TextView

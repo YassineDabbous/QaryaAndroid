@@ -67,17 +67,7 @@ public class RelationsFragment extends MyRecyclerFragment<Relation, VMRelations>
     }
 
     public static RelationsFragment newInstance() {
-        return newInstance(YDUserManager.auth().getId(), 0);
-    }
-    public static RelationsFragment newInstanceFriends(int uid) {
-        return newInstance(uid, 4);
-    }
-    private static RelationsFragment newInstance(int uid, int index) {
-        Bundle args = new Bundle();
-        args.putInt(Const.ID, uid);
-        args.putInt(Const.CATEGORY, index);
         RelationsFragment fragment = new RelationsFragment();
-        fragment.setArguments(args);
         return fragment;
     }
 
@@ -97,7 +87,6 @@ public class RelationsFragment extends MyRecyclerFragment<Relation, VMRelations>
         mViewModel.getRelationsBlocked().observe(this, this::onDataReceived);
 
         getData();
-        //mViewModel.friends(getArgs().getInt(Const.ID ,0));
     }
 
     @Override
@@ -113,7 +102,7 @@ public class RelationsFragment extends MyRecyclerFragment<Relation, VMRelations>
         else if (current == 2)
             mViewModel.requested();
         else if (current == 3){
-            int id = getArgs().getInt(Const.ID, YDUserManager.auth().getId());
+            int id = YDUserManager.auth().getId();
             mViewModel.friends(id);
         }
         else if (current == 4)

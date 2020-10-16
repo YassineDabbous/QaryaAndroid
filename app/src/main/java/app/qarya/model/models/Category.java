@@ -11,11 +11,9 @@ import java.io.Serializable;
 import app.qarya.model.ModelType;
 
 
-public class Category implements Serializable {
+public class Category extends Commun implements Serializable {
 
-    @SerializedName("id")
-    @Expose
-    private Integer id;
+
 
     @SerializedName("type")
     @Expose
@@ -49,9 +47,6 @@ public class Category implements Serializable {
         this.canPost = canPost;
     }
 
-    @SerializedName("name")
-    @Expose
-    private String name;
 
     @SerializedName("followable")
     @Expose
@@ -78,21 +73,6 @@ public class Category implements Serializable {
     @Expose
     private Integer followersCount;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Integer getParentId() {
         return parentId;

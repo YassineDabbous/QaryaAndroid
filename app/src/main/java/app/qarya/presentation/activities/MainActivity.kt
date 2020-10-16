@@ -16,10 +16,6 @@ import androidx.core.widget.ImageViewCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.google.android.gms.ads.MobileAds
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.toolbar_home.*
 import app.qarya.R
 import app.qarya.model.ModelType
 import app.qarya.model.models.User
@@ -32,7 +28,14 @@ import app.qarya.presentation.fragments.posts.NoteFragment
 import app.qarya.presentation.fragments.profile.UserProfileFragment
 import app.qarya.presentation.ui.fragments.HomeFragment
 import app.qarya.presentation.vms.VMMain
-import app.qarya.utils.*
+import app.qarya.utils.AlertUtils
+import app.qarya.utils.NotificationsSubscriber
+import app.qarya.utils.Showcase
+import app.qarya.utils.Themes
+import com.google.android.gms.ads.MobileAds
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.toolbar_home.*
 import tn.core.presentation.listeners.OnClickItemListener
 
 
@@ -122,10 +125,10 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
 
 
     fun hideToolbar(){
-        tools.visibility = View.GONE
+        appbar.visibility = View.GONE
     }
     fun showToolbar(){
-        tools.visibility = View.VISIBLE
+        appbar.visibility = View.VISIBLE
     }
 
 
@@ -156,17 +159,13 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
         }
 
 
-        productsBtn.setOnClickListener {
-            colorize(R.id.productsBtn)
+        fireBtn.setOnClickListener {
+            colorize(R.id.fireBtn)
             setFragment(HighlightsFragment.newInstance(ModelType.PRODUCT))
         }
         storesBtn.setOnClickListener {
             colorize(R.id.storesBtn)
             setFragment(HighlightsFragment.newInstance(ModelType.STORE))
-        }
-        usersBtn.setOnClickListener {
-            colorize(R.id.usersBtn)
-            setFragment(HighlightsFragment.newInstance(ModelType.USER))
         }
 
         /*prayerBtn.setOnClickListener {
@@ -190,41 +189,125 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
         showCase()
     }
 
-    fun colorize(id:Int){
-        if(id == R.id.usersBtn)
-            ImageViewCompat.setImageTintList(usersBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.yellow)));
+    fun colorize(id: Int){
+        if(id == R.id.fireBtn)
+            ImageViewCompat.setImageTintList(
+                fireBtn, ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.yellow
+                    )
+                )
+            );
         else
-            ImageViewCompat.setImageTintList(usersBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
+            ImageViewCompat.setImageTintList(
+                fireBtn, ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.white
+                    )
+                )
+            );
 
 
         if(id == R.id.storesBtn)
-            ImageViewCompat.setImageTintList(storesBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.yellow)));
+            ImageViewCompat.setImageTintList(
+                storesBtn, ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.yellow
+                    )
+                )
+            );
         else
-            ImageViewCompat.setImageTintList(storesBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
+            ImageViewCompat.setImageTintList(
+                storesBtn, ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.white
+                    )
+                )
+            );
 
 
         if(id == R.id.storesBtn)
-            ImageViewCompat.setImageTintList(storesBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.yellow)));
+            ImageViewCompat.setImageTintList(
+                storesBtn, ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.yellow
+                    )
+                )
+            );
         else
-            ImageViewCompat.setImageTintList(storesBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
+            ImageViewCompat.setImageTintList(
+                storesBtn, ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.white
+                    )
+                )
+            );
 
 
         if(id == R.id.homeBtn)
-            ImageViewCompat.setImageTintList(homeBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.yellow)));
+            ImageViewCompat.setImageTintList(
+                homeBtn, ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.yellow
+                    )
+                )
+            );
         else
-            ImageViewCompat.setImageTintList(homeBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
+            ImageViewCompat.setImageTintList(
+                homeBtn, ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.white
+                    )
+                )
+            );
 
 
         if(id == R.id.reqsBtn)
-            ImageViewCompat.setImageTintList(reqsBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.yellow)));
+            ImageViewCompat.setImageTintList(
+                reqsBtn, ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.yellow
+                    )
+                )
+            );
         else
-            ImageViewCompat.setImageTintList(reqsBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
+            ImageViewCompat.setImageTintList(
+                reqsBtn, ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.white
+                    )
+                )
+            );
 
 
         if(id == R.id.notifsBtn)
-            ImageViewCompat.setImageTintList(notifsBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.yellow)));
+            ImageViewCompat.setImageTintList(
+                notifsBtn, ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.yellow
+                    )
+                )
+            );
         else
-            ImageViewCompat.setImageTintList(notifsBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
+            ImageViewCompat.setImageTintList(
+                notifsBtn, ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.white
+                    )
+                )
+            );
 
     }
 
@@ -245,27 +328,68 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
 
 
     fun showMainCase(){
-        ImageViewCompat.setImageTintList(homeBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimary)))
-        ImageViewCompat.setImageTintList(reqsBtn, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimary)))
-        ImageViewCompat.setImageTintList(chat, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimary)))
+        ImageViewCompat.setImageTintList(
+            homeBtn, ColorStateList.valueOf(
+                ContextCompat.getColor(
+                    this,
+                    R.color.colorPrimary
+                )
+            )
+        )
+        ImageViewCompat.setImageTintList(
+            reqsBtn, ColorStateList.valueOf(
+                ContextCompat.getColor(
+                    this,
+                    R.color.colorPrimary
+                )
+            )
+        )
+        ImageViewCompat.setImageTintList(
+            chat, ColorStateList.valueOf(
+                ContextCompat.getColor(
+                    this,
+                    R.color.colorPrimary
+                )
+            )
+        )
         //Showcase.show(this, productsBtn, "المحلات", "معلومات عن جميع المحلات من مقاهي و مغازات وصيدليات ...", OnClickItemListener<String> {
-        Showcase.show(this!!, homeBtn, "الرئيسية", "هنا تجد اخر الاخبار من جميع التصنيفات!", OnClickItemListener<String> {
-            MyActivity.log("showcase for: home clicked")
-            Showcase.show(this, reqsBtn, "الصداقات", "جميع معارفك من نافذة واحدة", OnClickItemListener<String> {
-                MyActivity.log("prayer showcase tapped")
-                Showcase.show(this, chat, "الدردشة", "مكان للنقاشاء حول جديد الأخبار", OnClickItemListener<String> {
-                    MyActivity.log("chat showcase tapped")
-                    Showcase.show(this, notifsBtn, "التنبيهات", "تصلك هنا كل التعليقات و الإعجابات بما تنشره", OnClickItemListener<String> {
-                        MyActivity.log("notifs showcase tapped")
-                        /*Showcase.show(this, prayerBtn, "مواقيت الصلاة", "مواقيت الصلاوات الخمس، المواقيت غير مضبوطة حاليا نرجوا ان تأخذ هذا في عين الإعتبار", OnClickItemListener<String> {
+        Showcase.show(
+            this!!,
+            homeBtn,
+            "الرئيسية",
+            "هنا تجد اخر الاخبار من جميع التصنيفات!",
+            OnClickItemListener<String> {
+                MyActivity.log("showcase for: home clicked")
+                Showcase.show(
+                    this,
+                    reqsBtn,
+                    "الصداقات",
+                    "جميع معارفك من نافذة واحدة",
+                    OnClickItemListener<String> {
+                        MyActivity.log("prayer showcase tapped")
+                        Showcase.show(
+                            this,
+                            chat,
+                            "الدردشة",
+                            "مكان للنقاشاء حول جديد الأخبار",
+                            OnClickItemListener<String> {
+                                MyActivity.log("chat showcase tapped")
+                                Showcase.show(
+                                    this,
+                                    notifsBtn,
+                                    "التنبيهات",
+                                    "تصلك هنا كل التعليقات و الإعجابات بما تنشره",
+                                    OnClickItemListener<String> {
+                                        MyActivity.log("notifs showcase tapped")
+                                        /*Showcase.show(this, prayerBtn, "مواقيت الصلاة", "مواقيت الصلاوات الخمس، المواقيت غير مضبوطة حاليا نرجوا ان تأخذ هذا في عين الإعتبار", OnClickItemListener<String> {
                             MyActivity.log("prayer showcase tapped")
                         })*/
 
-                        //drawerFragmentLeft?.showcase()
+                                        //drawerFragmentLeft?.showcase()
+                                    })
+                            })
                     })
-                })
             })
-        })
         //Showcase.show(this, prayerBtn, "Prayer time", "times are not very exact, please put this in your consideration")
     }
 
@@ -320,7 +444,7 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
     }
 
 
-    fun toggleSwipe(b:Boolean) {
+    fun toggleSwipe(b: Boolean) {
         swiperefresh?.isEnabled = b
     }
     fun toggleSwipe() {
@@ -335,7 +459,7 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
         else
             setFragment(HomeFragment.newInstance())
     }
-    fun onNotifClicked(v:View) {
+    fun onNotifClicked(v: View) {
         colorize(R.id.notifsBtn)
         notifsCountTV.visibility = View.GONE
         if(currentFragment is NotificationsFragment)
@@ -344,6 +468,9 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
             setFragment(NotificationsFragment.newInstance())
     }
     fun onReqsClicked(view: View) {
+        if (YDUserManager.auth()==null)
+            return ;
+
         colorize(R.id.reqsBtn)
         reqsCountTV.visibility = View.GONE
         if(currentFragment is RelationsFragment)
@@ -352,14 +479,14 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
             setFragment(RelationsFragment.newInstance())
         //setFragment(CategoriesFragment.newInstance(CategoriesFragment.GoToProducts))
     }
-    fun onChatClicked(v:View) {
+    fun onChatClicked(v: View) {
         if(YDUserManager.check()){
             convsCountTV.visibility = View.GONE
             startActivity(Intent(this, ChatActivity::class.java))
         } else
             showLogin()
     }
-    fun onSearchClicked(v:View) {
+    fun onSearchClicked(v: View) {
         searchView.visibility = View.VISIBLE;
     }
 
@@ -375,7 +502,7 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
         handleIntent(intent)
     }
 
-    fun handleIntent(receiverdIntent:Intent){
+    fun handleIntent(receiverdIntent: Intent){
         //val receiverdIntent = intent
         val receivedAction = receiverdIntent.action
         val receivedType = receiverdIntent.type
@@ -396,7 +523,7 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
         }
     }
 
-    fun handleMainIntent(intent:Intent){ // for navigation or push notifs
+    fun handleMainIntent(intent: Intent){ // for navigation or push notifs
         //val roomId = intent.getStringExtra(Const.ID)
         //setFragment(RoomMessagesFragment.newInstance(roomId))
         val action = intent.getStringExtra(ACTION)
@@ -417,7 +544,7 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
     }
 
 
-    internal fun onSharedIntent(receiverdIntent:Intent, receivedType:String ) {
+    internal fun onSharedIntent(receiverdIntent: Intent, receivedType: String) {
             // check mime type
             if (receivedType!!.startsWith("text/")) {
                 val receivedText = receiverdIntent.getStringExtra(Intent.EXTRA_TEXT)

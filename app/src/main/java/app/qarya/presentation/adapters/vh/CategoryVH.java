@@ -57,7 +57,7 @@ public class CategoryVH extends BaseViewHolder<Category> {
             });
         }
         mView.setOnClickListener(view -> {
-            ((OnInteractListener<Category>) listener).onClick(model);
+            listener.onClick(model);
         });
     }
 

@@ -43,7 +43,7 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.r00t3r
+            //signingConfig signingConfigs.r00t3r
         }
         debug {
             ext.alwaysUpdateBuildId = false
@@ -53,7 +53,7 @@ android {
             minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.r00t3r
+            //signingConfig signingConfigs.r00t3r
         }
     }
     compileOptions {

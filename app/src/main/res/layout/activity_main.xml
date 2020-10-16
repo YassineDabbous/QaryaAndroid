@@ -22,9 +22,6 @@
 
 
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
 
 
@@ -35,43 +32,35 @@
             tools:openDrawer="start">
 
 
-            <LinearLayout
-                android:orientation="vertical"
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <include layout="@layout/toolbar_home"/>
-
-<!--
-                <TextView
-                    android:id="@+id/prayTimes"
-                    android:padding="4dp"
-                    android:visibility="gone"
-                    android:background="@color/transparent_light"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    tools:text="Fajr - 04:52 am
-Sunrise - 06:15 am
-Dhuhr - 12:24 pm
-Asr - 04:49 pm
-Sunset - 06:34 pm
-Maghrib - 06:34 pm
-Isha - 07:52 pm"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
--->
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <!--- remove parent LinearLayout if you want to move navbar on scrolling -->
+                    <include layout="@layout/toolbar_home"/>
+
+                    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                        android:layout_below="@+id/navigator"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                        android:id="@+id/swiperefresh"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <include layout="@layout/content_main" />
+
+                    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                </LinearLayout>
+
+                <!-- Adding bottom sheet after main content -->
+                <include layout="@layout/bottom_sheet" />
 
 
-                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-                    android:id="@+id/swiperefresh"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <include layout="@layout/content_main" />
-
-                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-            </LinearLayout>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
             <fragment
@@ -88,11 +77,6 @@ Isha - 07:52 pm"
         </androidx.drawerlayout.widget.DrawerLayout>
 
 
-        <!-- Adding bottom sheet after main content -->
-        <include layout="@layout/bottom_sheet" />
-
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
 

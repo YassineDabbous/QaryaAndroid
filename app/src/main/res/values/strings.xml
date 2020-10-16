@@ -31,6 +31,11 @@
     <string name="msg_gps_network_not_enabled">هذه الخدمة تحتاج إلى تفعيل الـGPS</string>
     <string name="open_location_settings">فتح إعدادات الخرائط</string>
 
+
+    <string name="buy_and_sell">بيع وشراء</string>
+    <string name="lost_and_found">مفقودات</string>
+    <string name="note">مقال</string>
+
     <string name="update_profile">تعديل الملف</string>
     <string name="update_email">البريد الإلكتروني</string>
     <string name="update_password">كلمة المرور</string>

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -99,6 +100,7 @@ public class SubscriptionsFragment extends MyRecyclerFragment<ModelHolder, VMSub
                 ((MyActivity) getActivity()).onItemSelected(item);
             }
         });
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         toggleDataVisibility( lista.size()==0 );
     }
@@ -114,6 +116,7 @@ public class SubscriptionsFragment extends MyRecyclerFragment<ModelHolder, VMSub
                 ((MyActivity) getActivity()).onItemSelected(item);
             }
         });
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         toggleDataVisibility( stores.size()==0 );
     }
@@ -129,6 +132,7 @@ public class SubscriptionsFragment extends MyRecyclerFragment<ModelHolder, VMSub
                 ((MyActivity) getActivity()).onItemSelected(item);
             }
         });
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setAdapter(adapter);
         toggleDataVisibility( users.size()==0 );
     }
@@ -156,7 +160,7 @@ public class SubscriptionsFragment extends MyRecyclerFragment<ModelHolder, VMSub
         tabLayout.getTabAt(getArgs().getInt(Const.TAG, 0)).select();
 
         recyclerView = view.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         adapter = new MultiAdapter(new ArrayList<>(), new OnInteractListener<Commun>() {
             @Override

@@ -111,7 +111,7 @@ interface RestAPI {
     fun subscriptions(): Call<BaseResponse<List<Broadcast>>>
     @GET("subscriptions/categories")
     fun followedCategories(@Query("page") page: Int=1): Call<BaseResponse<PagingResponse<Category>>>
-    @GET("subscriptions/posts")
+    @GET("subscriptions/users")
     fun followedUsers(@Query("page") page: Int=1): Call<BaseResponse<PagingResponse<User>>>
     @GET("subscriptions/stores")
     fun followedStores(@Query("page") page: Int=1): Call<BaseResponse<PagingResponse<User>>>

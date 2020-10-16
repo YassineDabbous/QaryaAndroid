@@ -22,6 +22,8 @@ open class MyViewModel<T>: BaseViewModel<RestAPI, T>() {
 
 
     override fun handleError(failure: Failure) {
+        // # TODO handle error message view,
+        //  TODO toast doesn't appear with DialogFragment
         MyApplication.get().toast("RQST ERROR")
         loadStatus.postValue(false)
         if (failure is Failure.ValidationFailure) {

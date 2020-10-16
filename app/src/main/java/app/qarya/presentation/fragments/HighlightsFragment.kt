@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import app.qarya.R
@@ -51,12 +52,24 @@ class HighlightsFragment : MyRecyclerFragment<ModelHolder, VMPosts>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewModel = ViewModelProvider(this).get(VMPosts::class.java)
-        mViewModel!!.callErrors.observe(this, Observer { errors: List<String?>? -> onError(errors) })
+        mViewModel!!.callErrors.observe(
+            this,
+            Observer { errors: List<String?>? -> onError(errors) })
         mViewModel!!.loadStatus.observe(this, Observer { b: Boolean? -> onStatusChanged(b) })
-        mViewModel!!.like.observe(this, Observer { data: LikeResponse -> this.onDataReceived(data) })
-        mViewModel!!.bookmark.observe(this, Observer { data: MarkResponse -> this.onDataReceived(data) })
-        mViewModel!!.getLiveData().observe(this, Observer { data: PagingResponse<ModelHolder> -> this.onDataReceived(data) })
-        mViewModel!!.categories.observe(this, Observer {  this.onCategoriesReceived(it) })
+        mViewModel!!.like.observe(
+            this,
+            Observer { data: LikeResponse -> this.onDataReceived(data) })
+        mViewModel!!.bookmark.observe(this, Observer { data: MarkResponse ->
+            this.onDataReceived(
+                data
+            )
+        })
+        mViewModel!!.getLiveData().observe(this, Observer { data: PagingResponse<ModelHolder> ->
+            this.onDataReceived(
+                data
+            )
+        })
+        mViewModel!!.categories.observe(this, Observer { this.onCategoriesReceived(it) })
         if (lista.size == 0) {
             getData()
         }
@@ -64,8 +77,8 @@ class HighlightsFragment : MyRecyclerFragment<ModelHolder, VMPosts>() {
 
     override fun getData() {
         super.getData()
-        var categoryID = args.getInt(Const.CATEGORY, 0 )
-        var type = args.getInt(Const.TYPE, ModelType.PRODUCT )
+        var categoryID = args.getInt(Const.CATEGORY, 0)
+        var type = args.getInt(Const.TYPE, ModelType.PRODUCT)
         if(categoryID!=0)
             when(type){
                 ModelType.USER, ModelType.STORE -> {
@@ -82,12 +95,18 @@ class HighlightsFragment : MyRecyclerFragment<ModelHolder, VMPosts>() {
     }
 
     fun onCategoriesReceived(list: List<Category>){
-        var adapterHorizontal = BaseAdapter(list, CategoryHorizontalVH::class.java, AdsViewHolder::class.java, OnClickItemListener {
-            args.putSerializable(Const.CATEGORY, it.id)
-            page = 1
-            lista.removeAll(lista)
-            getData()
-        }, 999)
+        var adapterHorizontal = BaseAdapter(
+            list,
+            CategoryHorizontalVH::class.java,
+            AdsViewHolder::class.java,
+            OnClickItemListener {
+                args.putSerializable(Const.CATEGORY, it.id)
+                page = 1
+                lista.removeAll(lista)
+                getData()
+            },
+            999
+        )
         horizontalRV.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
         horizontalRV.adapter = adapterHorizontal
     }
@@ -138,7 +157,11 @@ class HighlightsFragment : MyRecyclerFragment<ModelHolder, VMPosts>() {
 
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_highlights, container, false)
         initDefaultViews(view)
         return view
@@ -147,12 +170,15 @@ class HighlightsFragment : MyRecyclerFragment<ModelHolder, VMPosts>() {
         super.onViewCreated(view, savedInstanceState)
         val mLayoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
         recycler_view.layoutManager = mLayoutManager
-        endlessListener = EndlessListener(0, PostsAdapter.ADS_AFTER, object : EndlessListener.Action() {
-            override fun getOnScroll() {
-                MyActivity.log("get in scroll")
-                getData()
-            }
-        })
+        endlessListener = EndlessListener(
+            0,
+            PostsAdapter.ADS_AFTER,
+            object : EndlessListener.Action() {
+                override fun getOnScroll() {
+                    MyActivity.log("get in scroll")
+                    getData()
+                }
+            })
         recycler_view.addOnScrollListener(endlessListener)
         recycler_view.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recycler_view: RecyclerView, dx: Int, dy: Int) {
@@ -180,7 +206,7 @@ class HighlightsFragment : MyRecyclerFragment<ModelHolder, VMPosts>() {
     }
 
     fun setType(){
-        var type = args.getInt(Const.TYPE, ModelType.PRODUCT )
+        var type = args.getInt(Const.TYPE, ModelType.PRODUCT)
         when(type){
             ModelType.PRODUCT -> {
                 pageTitle.text = "Buy & sell"
@@ -196,9 +222,16 @@ class HighlightsFragment : MyRecyclerFragment<ModelHolder, VMPosts>() {
             }
             ModelType.USER -> {
                 pageTitle.text = "Employees"
-                createBtn.setOnClickListener { setFragment(UserProfileFragment.newInstance(YDUserManager.auth().id)) }
+                createBtn.setOnClickListener {
+                    setFragment(
+                        UserProfileFragment.newInstance(
+                            YDUserManager.auth().id
+                        )
+                    )
+                }
                 moreBtn.setOnClickListener { setFragment(PostsFragment.newInstance("more")) }
                 mViewModel!!.categoriesOfUsers()
+                recyclerView.layoutManager = GridLayoutManager(context, 2)
             }
         }
     }
