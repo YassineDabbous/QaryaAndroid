@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/item0"
+        android:title="@string/products"
+        android:icon="@drawable/shopping"/>
+
+    <item
+        android:id="@+id/store"
+        android:title="@string/stores"
+        android:icon="@drawable/store"/>
+
+    <item
+        android:id="@+id/jobs"
+        android:title="@string/jobs"
+        android:icon="@drawable/briefcase"/>
+
+    <item
+        android:id="@+id/item1"
+        android:title="@string/users"
+        android:icon="@drawable/account_hard_hat"/>
+
+</menu>

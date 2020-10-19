@@ -111,7 +111,7 @@ class ProductFragment : MyFragment<VMProduct>() {
 
 
         TextUtils.htmlToView(categoryTV, "<b>${getText(R.string.category)}: </b> ${mViewModel.item?.categoryName}")
-        TextUtils.htmlToView(addressTV, "<b>${getText(R.string.address)}: </b> ${mViewModel.item?.priceType}")
+        TextUtils.htmlToView(addressTV, "<b>${getText(R.string.pricing)}: </b> ${mViewModel.item?.priceType}")
         TextUtils.htmlToView(shippingTV, "<b>${getText(R.string.shipping)}: </b> ${mViewModel.item?.shipping}")
         TextUtils.htmlToView(descriptionTV, "<b>${getText(R.string.description)}: </b> ${mViewModel.item?.description}")
         //TextUtils.htmlToView(descriptionTV, mViewModel.item?.description ?: "")

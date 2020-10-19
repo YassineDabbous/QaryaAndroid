@@ -79,8 +79,8 @@ class HighlightsFragment : MyRecyclerFragment<ModelHolder, VMPosts>() {
         super.getData()
         var categoryID = args.getInt(Const.CATEGORY, 0)
         var type = args.getInt(Const.TYPE, ModelType.PRODUCT)
-        if(categoryID!=0)
-            when(type){
+        if (categoryID != 0)
+            when (type) {
                 ModelType.USER, ModelType.STORE -> {
                     mViewModel?.accounts(Filter(null, type, null, categoryID), page)
                 }
@@ -89,12 +89,12 @@ class HighlightsFragment : MyRecyclerFragment<ModelHolder, VMPosts>() {
                 }
             }
         else
-            // TODO
-            // get highlights
+        // TODO
+        // get highlights
         ;
     }
 
-    fun onCategoriesReceived(list: List<Category>){
+    fun onCategoriesReceived(list: List<Category>) {
         var adapterHorizontal = BaseAdapter(
             list,
             CategoryHorizontalVH::class.java,
@@ -155,8 +155,6 @@ class HighlightsFragment : MyRecyclerFragment<ModelHolder, VMPosts>() {
     }
 
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -166,6 +164,7 @@ class HighlightsFragment : MyRecyclerFragment<ModelHolder, VMPosts>() {
         initDefaultViews(view)
         return view
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mLayoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
@@ -183,7 +182,8 @@ class HighlightsFragment : MyRecyclerFragment<ModelHolder, VMPosts>() {
         recycler_view.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recycler_view: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recycler_view, dx, dy)
-                (activity as MainActivity?)!!.toggleSwipe(mLayoutManager.findFirstCompletelyVisibleItemPosition() == 0) // 0 is for first item position
+                if (activity is MainActivity)
+                    (activity as MainActivity?)!!.toggleSwipe(mLayoutManager.findFirstCompletelyVisibleItemPosition() == 0) // 0 is for first item position
             }
         })
         adapterVertical = MultiAdapter(lista, object : OnInteractListener<Commun> {
@@ -191,8 +191,8 @@ class HighlightsFragment : MyRecyclerFragment<ModelHolder, VMPosts>() {
                 when (action) {
                     Action.LIKE -> mViewModel!!.like(item.getId())
                     Action.BOOKMARK -> mViewModel!!.bookmark(item)
-                    Action.COMMENT -> (activity as MainActivity?)!!.comment(item)
-                    Action.SHARE -> (activity as MainActivity?)!!.share(item)
+                    Action.COMMENT -> (activity as MyActivity?)!!.comment(item)
+                    Action.SHARE -> (activity as MyActivity?)!!.share(item)
                 }
             }
 
@@ -205,9 +205,9 @@ class HighlightsFragment : MyRecyclerFragment<ModelHolder, VMPosts>() {
         setType()
     }
 
-    fun setType(){
+    fun setType() {
         var type = args.getInt(Const.TYPE, ModelType.PRODUCT)
-        when(type){
+        when (type) {
             ModelType.PRODUCT -> {
                 pageTitle.text = "Buy & sell"
                 createBtn.setOnClickListener { setFragment(CreatorFragment.newInstance(ModelType.PRODUCT)) }

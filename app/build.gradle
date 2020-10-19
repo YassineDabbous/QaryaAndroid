@@ -170,6 +170,11 @@ dependencies {
         exclude group: 'com.github.bumptech.glide', module: 'glide'
     }
 
+
+    implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.6'
+    implementation 'com.github.mancj:MaterialSearchBar:0.8.5'
+
+
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
 
     implementation 'androidx.multidex:multidex:2.0.1'

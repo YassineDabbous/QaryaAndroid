@@ -164,8 +164,8 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
             setFragment(HighlightsFragment.newInstance(ModelType.PRODUCT))
         }
         storesBtn.setOnClickListener {
-            colorize(R.id.storesBtn)
-            setFragment(HighlightsFragment.newInstance(ModelType.STORE))
+            //colorize(R.id.storesBtn)
+            startActivity(Intent(this, MarketActivity::class.java))
         }
 
         /*prayerBtn.setOnClickListener {
@@ -570,47 +570,6 @@ class MainActivity : MyActivity(), SwipeRefreshLayout.OnRefreshListener {
 
 
 
-    fun setBottomSheet(){
-        val sheetBehavior : BottomSheetBehavior<View>
-        val bottom_sheet: LinearLayout
-        bottom_sheet = findViewById(R.id.bottom_sheet)
-        sheetBehavior = BottomSheetBehavior.from(bottom_sheet)
-// click event for show-dismiss bottom sheet
-// click event for show-dismiss bottom sheet
-        searcher.setOnClickListener(View.OnClickListener {
-            if (sheetBehavior.getState() !== BottomSheetBehavior.STATE_EXPANDED) {
-                sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED)
-                //btn_bottom_sheet.setText("Close sheet")
-            } else {
-                sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED)
-                //btn_bottom_sheet.setText("Expand sheet")
-            }
-        })
-// callback for do something
-// callback for do something
-        sheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-                when (newState) {
-                    BottomSheetBehavior.STATE_HIDDEN -> {
-                    }
-                    BottomSheetBehavior.STATE_EXPANDED -> {
-                        //btn_bottom_sheet.setText("Close Sheet")
-                    }
-                    BottomSheetBehavior.STATE_COLLAPSED -> {
-                        //btn_bottom_sheet.setText("Expand Sheet")
-                    }
-                    BottomSheetBehavior.STATE_DRAGGING -> {
-                    }
-                    BottomSheetBehavior.STATE_SETTLING -> {
-                    }
-                }
-            }
-
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                //
-            }
-        })
-    }
 
 
 

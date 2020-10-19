@@ -3,9 +3,9 @@
     <string name="admob_initialize" translatable="false">ca-app-pub-5084130404881659~2426531522</string>
     <string name="admob_banner" translatable="false">ca-app-pub-5084130404881659/2398611365</string> -->
     <!-- TEST-->
-        <string name="admob_initialize" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
-        <string name="admob_banner" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
-        <string name="admob_interstitial" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_initialize" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_banner" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_interstitial" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
 
     <!-- FACEBook -->
     <string name="facebook_app_id" translatable="false">869065223590120</string>
@@ -91,7 +91,7 @@
         <item>حظر</item>
     </string-array>
 
-
+    <string name="pricing">التثمين</string>
     <string-array name="price_type">
         <item>قابل للنقاش</item>
         <item>ثابت</item>
@@ -144,14 +144,11 @@
     </string-array>
 
 
-
     <string name="friends">الأصدقاء</string>
     <string name="requests">الطلبات</string>
     <string name="requested">الطلبات المرسلة</string>
     <string name="suggested">أصدقاء مقترحون</string>
     <string name="blocked">المحظورون</string>
-
-
 
 
     <string name="product_name">إسم البضاعة</string>
@@ -170,6 +167,7 @@
 
     <string name="posts">منشورات</string>
     <string name="products">منتوجات</string>
+    <string name="jobs">وظائف</string>
     <string name="users">مستخدمون</string>
     <string name="stores">محلات</string>
 

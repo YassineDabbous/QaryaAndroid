@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.activities.MarketActivity"
+    android:background="@color/white">
+
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:visibility="visible"
+        tools:visibility="visible"
+        android:scaleType="fitXY"
+        android:src="@drawable/test"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/tools"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:padding="2dp"
+                android:layout_marginHorizontal="8dp"
+                android:gravity="center_vertical">
+
+                <com.mancj.materialsearchbar.MaterialSearchBar
+                    style="@style/MaterialSearchBarLight"
+                    app:mt_speechMode="false"
+                    app:mt_hint="Custom hint"
+                    app:mt_maxSuggestionsCount="10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:mt_searchBarColor="@color/gray"
+                    app:mt_placeholder="Search ..."
+                    android:id="@+id/searchBar"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:paddingHorizontal="8dp"
+                    android:id="@+id/filterBtn"
+                    android:background="@color/transparent"
+                    android:tint="?myTheme_color_inverse"
+                    app:srcCompat="@drawable/filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/tools"
+                app:layout_constraintBottom_toTopOf="@id/bottomBar"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:id="@+id/content_main">
+            </RelativeLayout>
+
+
+            <me.ibrahimsn.lib.SmoothBottomBar
+                android:id="@+id/bottomBar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:menu="@menu/market_bottom_bar"
+                app:backgroundColor="?myThemePrimaryDark"
+                app:indicatorColor="?myThemePrimary"
+                app:textColor="@color/white"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Adding bottom sheet after main content -->
+    <include layout="@layout/bottom_sheet" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
+    <include
+        android:id="@+id/llProgressBar"
+        android:visibility="gone"
+        tools:visibility="visible"
+        layout="@layout/loading"/>
+
+</RelativeLayout>
